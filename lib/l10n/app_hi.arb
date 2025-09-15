@@ -1,0 +1,9 @@
+{
+  "@@locale": "hi",
+  "welcome": "स्वागत है",
+  "welcome_to_herbtrace": "हर्बट्रेस में आपका स्वागत है",
+  "login": "लॉगिन",
+  "start": "शुरू करें",
+  "end": "समाप्त करें",
+  "select_language": "भाषा चुनें"
+}

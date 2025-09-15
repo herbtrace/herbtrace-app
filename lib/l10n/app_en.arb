@@ -1,0 +1,9 @@
+{
+  "@@locale": "en",
+  "welcome": "Welcome",
+  "welcome_to_herbtrace": "Welcome to herbtrace",
+  "login": "Login",
+  "start": "Start",
+  "end": "End",
+  "select_language": "Select Language"
+}
