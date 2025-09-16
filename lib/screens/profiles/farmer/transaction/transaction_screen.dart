@@ -5,7 +5,6 @@ import 'package:herbtrace_app/models/common/lat_long.dart';
 import 'package:herbtrace_app/models/crop_model.dart';
 import 'package:herbtrace_app/models/profiles/farmer/farmer_profile.dart';
 import 'package:herbtrace_app/widgets/crop_dropdown.dart';
-// import 'package:herbtrace_app/models/common/crop_model.dart';
 import 'package:herbtrace_app/providers/common/profile_provider.dart';
 import 'package:herbtrace_app/providers/profiles/farmer/transaction_provider.dart';
 import 'package:herbtrace_app/services/location/location_service.dart';

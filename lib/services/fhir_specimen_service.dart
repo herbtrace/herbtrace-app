@@ -1,13 +1,11 @@
 import 'package:fhir/r4.dart';
 import 'package:fhir_at_rest/r4/fhir_request.dart';
-// import 'package:fhir/r5.dart';
+
 import 'package:herbtrace_app/models/crop_model.dart';
 
 class FhirSpecimenService {
   static final FhirSpecimenService _instance = FhirSpecimenService._internal();
-  final String baseUrl =
-      'https://server.fire.ly/r4'; // Replace with your FHIR server URL
-
+  final String baseUrl = 'https://server.fire.ly/r4';
   factory FhirSpecimenService() {
     return _instance;
   }
@@ -58,14 +56,13 @@ class FhirSpecimenService {
             time: FhirDateTime(DateTime.now()),
           ),
         ],
-        // Add processing information
+
         processing: [
           SpecimenProcessing(
             description: crop.requiredProcessingSteps.join(', '),
             timeDateTime: FhirDateTime(DateTime.now()),
           ),
         ],
-        // Add condition information based on quality parameters
         condition: [
           CodeableConcept(
             text:
@@ -83,14 +80,7 @@ class FhirSpecimenService {
 
       final response = await request.request();
 
-      if (response is Resource) {
-        // Return the URL of the created specimen
-        return '${baseUrl}/Specimen/${response.fhirId}';
-      } else {
-        throw Exception(
-          'Failed to create specimen: ${(response as OperationOutcome).issue?.first.diagnostics}',
-        );
-      }
+      return '${baseUrl}/Specimen/${response.fhirId}';
     } catch (e) {
       print('Error creating FHIR specimen: $e');
       return null;

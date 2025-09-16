@@ -30,8 +30,7 @@ class TransactionState {
   final List<BatchCropModel> activeTransactions;
   final bool isLoading;
   final String? error;
-  final Map<String, CropModel> crops; // Store fetched crops
-
+  final Map<String, CropModel> crops;
   const TransactionState({
     this.activeTransactions = const [],
     this.isLoading = false,
@@ -77,7 +76,6 @@ class TransactionNotifier extends StateNotifier<TransactionState> {
           .map((json) => BatchCropModel.fromJson(json))
           .toList();
 
-      // Load crop details for each transaction
       final Map<String, CropModel> crops = {};
       for (var transaction in transactions) {
         if (!crops.containsKey(transaction.cropId)) {
@@ -88,7 +86,6 @@ class TransactionNotifier extends StateNotifier<TransactionState> {
         }
       }
 
-      // Update state with transactions
       state = state.copyWith(
         activeTransactions: transactions,
         crops: crops,

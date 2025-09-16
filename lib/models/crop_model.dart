@@ -48,9 +48,7 @@ class CropModel {
       specimenFhirUrl: json['specimen_fhir_url'] as String? ?? '',
       imageUrl: json['image_url'] as String? ?? '',
       speciesName: json['species_common_name'] as String,
-      localNames: [
-        json['species_common_name'] as String,
-      ], // Converting to list as per new schema
+      localNames: [json['species_common_name'] as String],
       scientificName: json['species_scientific_name'] as String,
       category: json['category'] as String?,
       allowedHarvestMonths: List<int>.from(

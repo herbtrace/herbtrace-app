@@ -4,7 +4,6 @@ import 'package:herbtrace_app/config/constants/app_constants.dart';
 import 'package:herbtrace_app/providers/common/profile_provider.dart';
 import 'package:herbtrace_app/screens/profiles/farmer/dashboard/farmer_dashboard_screen.dart';
 import 'package:herbtrace_app/screens/profiles/farmer/status/status_screen.dart';
-import 'package:herbtrace_app/screens/profiles/farmer/transaction/transaction_screen.dart';
 import 'package:herbtrace_app/widgets/common/app_bar/custom_app_bar.dart';
 import 'package:herbtrace_app/widgets/common/navigation/app_drawer.dart';
 import 'package:herbtrace_app/widgets/common/navigation/bottom_nav_bar.dart';
@@ -39,8 +38,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
       case ProfileType.testing:
         // TODO: Implement testing body
         return const Center(child: Text('Testing View'));
-      default:
-        return const Center(child: Text('Select a Profile Type')); // Fallback
+      // default:
+      //   return const Center(child: Text('Select a Profile Type')); // Fallback
     }
   }
 
@@ -51,7 +50,6 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
       case 1:
         debugPrint('Navigating to Status Screen');
         return const FarmerProfileScreen();
-      // return const Center(child: Text('Unknown Page'));
       default:
         return const Center(child: Text('Unknown Page'));
     }
@@ -66,7 +64,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
           BottomNavigationBarItem(icon: Icon(Icons.list_alt), label: 'Status'),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
         ];
-      // Add other profile types' navigation items here
+
       default:
         return const [
           BottomNavigationBarItem(
