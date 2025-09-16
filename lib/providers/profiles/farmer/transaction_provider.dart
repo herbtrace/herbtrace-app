@@ -93,6 +93,7 @@ class TransactionNotifier extends StateNotifier<TransactionState> {
         error: null,
       );
     } catch (e) {
+      print(e);
       state = state.copyWith(
         isLoading: false,
         error: 'Failed to load transactions: $e',

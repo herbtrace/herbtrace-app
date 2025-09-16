@@ -35,15 +35,19 @@ class BatchTransferService {
           '$baseUrl/get',
         ).replace(queryParameters: {'profile_id': profileId, 'role': role}),
       );
-
+print(response.body);
       if (response.statusCode == 200) {
         final List<dynamic> data = jsonDecode(response.body);
         return data
             .map((json) => BatchTransfer.fromJson(json as Map<String, dynamic>))
             .toList();
       }
+
+      print(response.body);
       throw Exception('Failed to load batch transfers');
     } catch (e) {
+      // print(response.body);
+      print(e);
       throw Exception('Failed to get batch transfers: $e');
     }
   }
