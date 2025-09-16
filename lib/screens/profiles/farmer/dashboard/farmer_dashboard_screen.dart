@@ -1,15 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:herbtrace_app/config/theme.dart';
+import 'package:herbtrace_app/models/common/lat_long.dart';
 import 'package:herbtrace_app/models/profiles/farmer/farmer_profile.dart';
 import 'package:herbtrace_app/providers/common/profile_provider.dart';
 
-class FarmerDashboardScreen extends ConsumerWidget {
-  const FarmerDashboardScreen({super.key});
+class FarmerProfileScreen extends ConsumerWidget {
+  const FarmerProfileScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final profile = ref.watch(currentProfileProvider) as FarmerProfile?;
+    // final profile = ref.watch(currentProfileProvider) as FarmerProfile?;
+    final profile = FarmerProfile(
+      aadharNumber: String.fromCharCode(0),
+      id: '',
+      name: 'Super man',
+      phoneNumber: '',
+      location: LatLong(latitude: 0, longitude: 0),
+    );
 
     if (profile == null) {
       return const Center(child: CircularProgressIndicator());

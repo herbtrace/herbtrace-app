@@ -4,7 +4,7 @@ import 'package:herbtrace_app/models/profiles/base_profile.dart';
 
 final currentProfileProvider = StateProvider<BaseProfile?>((ref) => null);
 
-final profileTypeProvider = StateProvider<ProfileType>((ref) {
+final profileTypeProvider = StateProvider<ProfileType?>((ref) {
   final profile = ref.watch(currentProfileProvider);
-  return profile?.type ?? ProfileType.farmer;
+  return profile?.type;
 });

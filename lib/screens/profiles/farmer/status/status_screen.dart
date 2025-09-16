@@ -1,14 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:herbtrace_app/config/theme.dart';
-import 'package:herbtrace_app/models/common/collection_event.dart';
+import 'package:herbtrace_app/utils/user_preferences.dart';
 import 'package:herbtrace_app/providers/profiles/farmer/transaction_provider.dart';
+import 'package:herbtrace_app/screens/profiles/farmer/transaction/transaction_screen.dart';
+import 'package:herbtrace_app/widgets/common/primary_button.dart';
 
-class StatusScreen extends ConsumerWidget {
+class StatusScreen extends ConsumerStatefulWidget {
   const StatusScreen({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<StatusScreen> createState() => _StatusScreenState();
+}
+
+class _StatusScreenState extends ConsumerState<StatusScreen> {
+  @override
+  void initState() {
+    super.initState();
+    _loadTransactions();
+  }
+
+  Future<void> _loadTransactions() async {
+    final profileId = await UserPreferences.getProfileId();
+    ref.read(transactionProvider.notifier).loadTransactions(profileId);
+  }
+
+  @override
+  Widget build(BuildContext context) {
     final transactionState = ref.watch(transactionProvider);
 
     if (transactionState.isLoading) {
@@ -25,50 +43,70 @@ class StatusScreen extends ConsumerWidget {
       );
     }
 
-    return ListView(
-      padding: const EdgeInsets.all(16.0),
-      children: [
-        if (transactionState.activeTransactions.isNotEmpty) ...[
-          const Text(
-            'Active Transactions',
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-          ),
-          const SizedBox(height: 16),
-          ...transactionState.activeTransactions
-              .map(
-                (transaction) => _TransactionCard(
-                  transaction: transaction,
-                  onEnd: () {
-                    ref
-                        .read(transactionProvider.notifier)
-                        .endTransaction(transaction.id);
-                  },
+    return RefreshIndicator(
+      onRefresh: _loadTransactions,
+      child: ListView(
+        padding: const EdgeInsets.all(16.0),
+        children: [
+          PrimaryButton(
+            text: 'Start',
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const TransactionScreen(),
                 ),
-              )
-              .toList(),
-        ] else
-          const Center(
-            child: Padding(
-              padding: EdgeInsets.symmetric(vertical: 32.0),
-              child: Text(
-                'No active transactions',
-                style: TextStyle(color: AppTheme.textSecondary, fontSize: 16),
+              );
+            },
+          ),
+          if (transactionState.activeTransactions.isNotEmpty) ...[
+            const Text(
+              'Active Transactions',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 16),
+            ...transactionState.activeTransactions.map(
+              (transaction) => _TransactionCard(
+                transaction: transaction,
+                onEnd: () async {
+                  final profileId = await UserPreferences.getProfileId();
+                  ref
+                      .read(transactionProvider.notifier)
+                      .endTransaction(transaction.batchId, profileId);
+                },
               ),
             ),
-          ),
-      ],
+          ] else
+            const Center(
+              child: Padding(
+                padding: EdgeInsets.symmetric(vertical: 32.0),
+                child: Text(
+                  'No active transactions',
+                  style: TextStyle(color: AppTheme.textSecondary, fontSize: 16),
+                ),
+              ),
+            ),
+        ],
+      ),
     );
   }
 }
 
-class _TransactionCard extends StatelessWidget {
-  final CollectionEvent transaction;
+class _TransactionCard extends ConsumerWidget {
+  final BatchCropModel transaction;
   final VoidCallback onEnd;
 
   const _TransactionCard({required this.transaction, required this.onEnd});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final transactionState = ref.watch(transactionProvider);
+    final crop = transactionState.crops[transaction.cropId];
+
+    if (crop == null) {
+      return const SizedBox.shrink(); // Skip if crop not found
+    }
+
     return Card(
       margin: const EdgeInsets.only(bottom: 16),
       child: Padding(
@@ -80,40 +118,47 @@ class _TransactionCard extends StatelessWidget {
               children: [
                 const Icon(Icons.grass, color: AppTheme.primaryGreen),
                 const SizedBox(width: 8),
-                Text(
-                  transaction.cropId,
-                  style: const TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w500,
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        crop.speciesName,
+                        style: const TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      Text(
+                        crop.scientificName,
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: Colors.grey[600],
+                          fontStyle: FontStyle.italic,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
-                const Spacer(),
-                if (transaction.qrCode != null)
-                  IconButton(
-                    icon: const Icon(Icons.qr_code),
-                    onPressed: () => _showQRDialog(context),
-                  )
-                else
-                  TextButton.icon(
-                    onPressed: onEnd,
-                    icon: const Icon(Icons.stop_circle_outlined),
-                    label: const Text('End'),
-                    style: TextButton.styleFrom(foregroundColor: Colors.red),
-                  ),
+                TextButton.icon(
+                  onPressed: onEnd,
+                  icon: const Icon(Icons.stop_circle_outlined),
+                  label: const Text('End'),
+                  style: TextButton.styleFrom(foregroundColor: Colors.red),
+                ),
               ],
             ),
             const Divider(),
             _InfoRow(
-              icon: Icons.calendar_today,
-              label: 'Started',
-              value: _formatDate(transaction.startDate),
+              icon: Icons.tag,
+              label: 'Batch ID',
+              value: transaction.batchId,
             ),
             const SizedBox(height: 8),
             _InfoRow(
-              icon: Icons.location_on,
-              label: 'Location',
-              value:
-                  '${transaction.location.latitude}, ${transaction.location.longitude}',
+              icon: Icons.calendar_today,
+              label: 'Started',
+              value: _formatDate(transaction.startTime),
             ),
           ],
         ),
@@ -123,37 +168,6 @@ class _TransactionCard extends StatelessWidget {
 
   String _formatDate(DateTime date) {
     return '${date.day}/${date.month}/${date.year} ${date.hour}:${date.minute}';
-  }
-
-  void _showQRDialog(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: const Text('Transaction QR Code'),
-        content: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            // TODO(chetanr25): Uncomment when qr_flutter is added
-            // QrImage(
-            //   data: transaction.qrCode!,
-            //   version: QrVersions.auto,
-            //   size: 200.0,
-            // ),
-            const SizedBox(height: 16),
-            Text(
-              'Crop: ${transaction.cropId}',
-              style: const TextStyle(fontWeight: FontWeight.bold),
-            ),
-          ],
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: const Text('Close'),
-          ),
-        ],
-      ),
-    );
   }
 }
 

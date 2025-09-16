@@ -24,8 +24,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
   }
 
   Widget _buildBody() {
-    final profileType = ref.watch(profileTypeProvider);
-
+    final profileType = ref.watch(profileTypeProvider) ?? ProfileType.farmer;
+    print(profileType);
     // Return appropriate body based on profile type and current index
     switch (profileType) {
       case ProfileType.farmer:
@@ -39,18 +39,19 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
       case ProfileType.testing:
         // TODO: Implement testing body
         return const Center(child: Text('Testing View'));
+      default:
+        return const Center(child: Text('Select a Profile Type')); // Fallback
     }
   }
 
   Widget _buildFarmerBody() {
     switch (_currentIndex) {
       case 0:
-        return const FarmerDashboardScreen();
-      case 2:
-        debugPrint('Navigating to Status Screen');
         return const StatusScreen();
       case 1:
-        return const TransactionScreen();
+        debugPrint('Navigating to Status Screen');
+        return const FarmerProfileScreen();
+      // return const Center(child: Text('Unknown Page'));
       default:
         return const Center(child: Text('Unknown Page'));
     }
@@ -62,15 +63,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     switch (profileType) {
       case ProfileType.farmer:
         return const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.dashboard),
-            label: 'Dashboard',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.add_box),
-            label: 'Transaction',
-          ),
           BottomNavigationBarItem(icon: Icon(Icons.list_alt), label: 'Status'),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
         ];
       // Add other profile types' navigation items here
       default:
@@ -79,6 +73,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
             icon: Icon(Icons.dashboard),
             label: 'Dashboard',
           ),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
         ];
     }
   }
@@ -93,6 +88,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
       body: _buildBody(),
       bottomNavigationBar: BottomNavBar(
         currentIndex: _currentIndex,
+
         items: _buildNavItems(),
         onTap: _onNavItemTapped,
       ),
