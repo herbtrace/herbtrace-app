@@ -28,14 +28,12 @@ class BatchCropModel {
 
 class TransactionState {
   final List<BatchCropModel> activeTransactions;
-  final List<BatchCropModel> completedTransactions;
   final bool isLoading;
   final String? error;
   final Map<String, CropModel> crops; // Store fetched crops
 
   const TransactionState({
     this.activeTransactions = const [],
-    this.completedTransactions = const [],
     this.isLoading = false,
     this.error,
     this.crops = const {},
@@ -43,15 +41,12 @@ class TransactionState {
 
   TransactionState copyWith({
     List<BatchCropModel>? activeTransactions,
-    List<BatchCropModel>? completedTransactions,
     bool? isLoading,
     String? error,
     Map<String, CropModel>? crops,
   }) {
     return TransactionState(
       activeTransactions: activeTransactions ?? this.activeTransactions,
-      completedTransactions:
-          completedTransactions ?? this.completedTransactions,
       isLoading: isLoading ?? this.isLoading,
       crops: crops ?? this.crops,
       error: error,
@@ -93,10 +88,9 @@ class TransactionNotifier extends StateNotifier<TransactionState> {
         }
       }
 
-      // Separate active and completed transactions (for now, treat all as active)
+      // Update state with transactions
       state = state.copyWith(
         activeTransactions: transactions,
-        completedTransactions: const [],
         crops: crops,
         isLoading: false,
         error: null,
@@ -136,32 +130,6 @@ class TransactionNotifier extends StateNotifier<TransactionState> {
       state = state.copyWith(
         isLoading: false,
         error: 'Failed to start transaction: $e',
-      );
-    }
-  }
-
-  Future<void> endTransaction(String batchId, String profileId) async {
-    state = state.copyWith(isLoading: true, error: null);
-    try {
-      final response = await http.post(
-        Uri.parse('${ApiConfig.baseUrl}/end'),
-        headers: {'Content-Type': 'application/json'},
-        body: jsonEncode({
-          'batch_id': batchId,
-          'end_time': DateTime.now().toIso8601String(),
-          'profile_id': profileId,
-        }),
-      );
-
-      if (response.statusCode != 200) {
-        throw Exception('Failed to end transaction');
-      }
-
-      await loadTransactions(profileId);
-    } catch (e) {
-      state = state.copyWith(
-        isLoading: false,
-        error: 'Failed to end transaction: $e',
       );
     }
   }

@@ -4,7 +4,9 @@ import 'package:herbtrace_app/config/theme.dart';
 import 'package:herbtrace_app/utils/user_preferences.dart';
 import 'package:herbtrace_app/providers/profiles/farmer/transaction_provider.dart';
 import 'package:herbtrace_app/screens/profiles/farmer/transaction/transaction_screen.dart';
+import 'package:herbtrace_app/screens/profiles/farmer/transaction/transaction_details_screen.dart';
 import 'package:herbtrace_app/widgets/common/primary_button.dart';
+import 'package:herbtrace_app/widgets/transaction_card.dart';
 
 class StatusScreen extends ConsumerStatefulWidget {
   const StatusScreen({super.key});
@@ -66,13 +68,23 @@ class _StatusScreenState extends ConsumerState<StatusScreen> {
             ),
             const SizedBox(height: 16),
             ...transactionState.activeTransactions.map(
-              (transaction) => _TransactionCard(
+              (transaction) => TransactionCard(
                 transaction: transaction,
-                onEnd: () async {
-                  final profileId = await UserPreferences.getProfileId();
-                  ref
-                      .read(transactionProvider.notifier)
-                      .endTransaction(transaction.batchId, profileId);
+                onTap: () {
+                  final crop = ref
+                      .read(transactionProvider)
+                      .crops[transaction.cropId];
+                  if (crop != null) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => TransactionDetailsScreen(
+                          transaction: transaction,
+                          crop: crop,
+                        ),
+                      ),
+                    );
+                  }
                 },
               ),
             ),
@@ -88,115 +100,6 @@ class _StatusScreenState extends ConsumerState<StatusScreen> {
             ),
         ],
       ),
-    );
-  }
-}
-
-class _TransactionCard extends ConsumerWidget {
-  final BatchCropModel transaction;
-  final VoidCallback onEnd;
-
-  const _TransactionCard({required this.transaction, required this.onEnd});
-
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final transactionState = ref.watch(transactionProvider);
-    final crop = transactionState.crops[transaction.cropId];
-
-    if (crop == null) {
-      return const SizedBox.shrink(); // Skip if crop not found
-    }
-
-    return Card(
-      margin: const EdgeInsets.only(bottom: 16),
-      child: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              children: [
-                const Icon(Icons.grass, color: AppTheme.primaryGreen),
-                const SizedBox(width: 8),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        crop.speciesName,
-                        style: const TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                      Text(
-                        crop.scientificName,
-                        style: TextStyle(
-                          fontSize: 14,
-                          color: Colors.grey[600],
-                          fontStyle: FontStyle.italic,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                TextButton.icon(
-                  onPressed: onEnd,
-                  icon: const Icon(Icons.stop_circle_outlined),
-                  label: const Text('End'),
-                  style: TextButton.styleFrom(foregroundColor: Colors.red),
-                ),
-              ],
-            ),
-            const Divider(),
-            _InfoRow(
-              icon: Icons.tag,
-              label: 'Batch ID',
-              value: transaction.batchId,
-            ),
-            const SizedBox(height: 8),
-            _InfoRow(
-              icon: Icons.calendar_today,
-              label: 'Started',
-              value: _formatDate(transaction.startTime),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  String _formatDate(DateTime date) {
-    return '${date.day}/${date.month}/${date.year} ${date.hour}:${date.minute}';
-  }
-}
-
-class _InfoRow extends StatelessWidget {
-  final IconData icon;
-  final String label;
-  final String value;
-
-  const _InfoRow({
-    required this.icon,
-    required this.label,
-    required this.value,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Icon(icon, size: 16, color: AppTheme.textSecondary),
-        const SizedBox(width: 8),
-        Text('$label:', style: const TextStyle(color: AppTheme.textSecondary)),
-        const SizedBox(width: 8),
-        Expanded(
-          child: Text(
-            value,
-            style: const TextStyle(fontWeight: FontWeight.w500),
-          ),
-        ),
-      ],
     );
   }
 }
