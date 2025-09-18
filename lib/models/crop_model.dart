@@ -112,8 +112,7 @@ class ApprovedCollectionRegion {
     return ApprovedCollectionRegion(
       regionName: json['region_name'] as String,
       stateName: json['state_name'] as String,
-      allowedMonths:
-          [], // This field doesn't exist in original JSON, added as per new schema
+      allowedMonths: [],
       latitude: json['latitude'] as double,
       longitude: json['longitude'] as double,
     );

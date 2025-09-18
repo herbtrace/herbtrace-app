@@ -3,9 +3,8 @@ import 'package:herbtrace_app/models/profiles/farmer/environmental_conditions.da
 import 'package:herbtrace_app/models/profiles/farmer/farming_inputs.dart';
 
 class CollectionEvent {
-  final String id;
-  final int batchId;
-  final String actorId;
+  final String batchId;
+  final String profileId;
   final String cropId;
   final LatLong location;
   final DateTime startDate;
@@ -16,13 +15,12 @@ class CollectionEvent {
   final String? qrCode;
 
   const CollectionEvent({
-    required this.id,
     required this.batchId,
-    required this.actorId,
+    required this.profileId,
     required this.cropId,
     required this.location,
     required this.startDate,
-    this.harvestDate,
+    required this.harvestDate,
     this.environment,
     this.inputs,
     this.permits,
@@ -32,29 +30,26 @@ class CollectionEvent {
   bool get isComplete => harvestDate != null;
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    'batchId': batchId,
-    'actorId': actorId,
-    'cropId': cropId,
+    'batch_id': batchId,
+    'profile_id': profileId,
+    'crop_id': cropId,
     'location': location.toJson(),
-    'startDate': startDate.toIso8601String(),
-    if (harvestDate != null) 'harvestDate': harvestDate!.toIso8601String(),
-    if (environment != null) 'environment': environment!.toJson(),
-    if (inputs != null) 'inputs': inputs!.toJson(),
-    if (permits != null) 'permits': permits,
-    if (qrCode != null) 'qrCode': qrCode,
+    'start_date': startDate.toIso8601String(),
+    'harvest_date': harvestDate?.toIso8601String(),
+    'environment': environment?.toJson(),
+    'inputs': inputs?.toJson(),
+    'permits': permits,
   };
 
   factory CollectionEvent.fromJson(Map<String, dynamic> json) =>
       CollectionEvent(
-        id: json['id'] as String,
-        batchId: json['batchId'] as int,
-        actorId: json['actorId'] as String,
-        cropId: json['cropId'] as String,
+        batchId: json['batch_id'] as String,
+        profileId: json['profile_id'] as String,
+        cropId: json['crop_id'] as String,
         location: LatLong.fromJson(json['location'] as Map<String, dynamic>),
-        startDate: DateTime.parse(json['startDate'] as String),
-        harvestDate: json['harvestDate'] != null
-            ? DateTime.parse(json['harvestDate'] as String)
+        startDate: DateTime.parse(json['start_date'] as String),
+        harvestDate: json['harvest_date'] != null
+            ? DateTime.parse(json['harvest_date'] as String)
             : null,
         environment: json['environment'] != null
             ? EnvironmentalConditions.fromJson(

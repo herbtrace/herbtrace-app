@@ -1,28 +1,28 @@
 class IngredientsModel {
+  final String ingredientId;
   final String name;
-  final int batchId;
   final double quantity;
   final String units;
 
   IngredientsModel({
+    required this.ingredientId,
     required this.name,
-    required this.batchId,
     required this.quantity,
     required this.units,
   });
 
   factory IngredientsModel.fromJson(Map<String, dynamic> json) {
     return IngredientsModel(
+      ingredientId: json['ingredient_id'] as String,
       name: json['name'] as String,
-      batchId: json['batch_id'] as int,
-      quantity: json['quantity'] as double,
+      quantity: json['quantity'].toDouble(),
       units: json['units'] as String,
     );
   }
 
   Map<String, dynamic> toJson() => {
+    'ingredient_id': ingredientId,
     'name': name,
-    'batch_id': batchId,
     'quantity': quantity,
     'units': units,
   };

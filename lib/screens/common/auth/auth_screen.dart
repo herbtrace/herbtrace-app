@@ -2,16 +2,18 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:herbtrace_app/screens/common/home_screen.dart';
 import '../../../services/auth_service.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class AuthScreen extends StatefulWidget {
+class AuthScreen extends ConsumerStatefulWidget {
   const AuthScreen({super.key});
 
   @override
-  State<AuthScreen> createState() => _AuthScreenState();
+  ConsumerState<AuthScreen> createState() => _AuthScreenState();
 }
 
-class _AuthScreenState extends State<AuthScreen>
+class _AuthScreenState extends ConsumerState<AuthScreen>
     with SingleTickerProviderStateMixin {
   final TextEditingController _idController = TextEditingController();
   final TextEditingController _otpController = TextEditingController();
@@ -32,6 +34,7 @@ class _AuthScreenState extends State<AuthScreen>
   @override
   void initState() {
     super.initState();
+    _initializeAuth();
     _idController.addListener(_validateInput);
 
     _animationController = AnimationController(
@@ -46,6 +49,18 @@ class _AuthScreenState extends State<AuthScreen>
     _fadeAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
       CurvedAnimation(parent: _animationController, curve: Curves.easeOut),
     );
+  }
+
+  Future<void> _initializeAuth() async {
+    try {
+      await _authService.init();
+    } catch (e) {
+      if (mounted) {
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(SnackBar(content: Text('Error initializing auth: $e')));
+      }
+    }
   }
 
   @override
@@ -128,15 +143,23 @@ class _AuthScreenState extends State<AuthScreen>
     try {
       final isValid = _authService.verifyOTP(_otpController.text);
       if (isValid) {
-        // TODO: Navigate to next screen
+        await _authService.completeLogin(_idController.text, ref);
+
         if (mounted) {
           ScaffoldMessenger.of(
             context,
           ).showSnackBar(const SnackBar(content: Text('Login successful!')));
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context) => HomeScreen()),
+          );
+          setState(() {});
         }
       } else {
         setState(() => _errorText = 'Invalid OTP');
       }
+    } catch (e) {
+      setState(() => _errorText = e.toString());
     } finally {
       setState(() => _isLoading = false);
     }

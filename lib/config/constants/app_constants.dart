@@ -1,4 +1,14 @@
-enum ProfileType { farmer, processor, transport, testing }
+// enum ProfileType {
+//   farmer,
+//   wildCollector,
+//   processor,
+//   laboratory,
+//   manufacturer,
+//   packer,
+//   storage,
+//   transport,
+//   testing,
+// }
 
 enum TransactionStatus { active, completed, pending, failed }
 

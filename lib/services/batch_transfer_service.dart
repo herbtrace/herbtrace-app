@@ -1,10 +1,11 @@
 import 'dart:convert';
+import 'package:herbtrace_app/config/constants/api_endpoints.dart';
+import 'package:herbtrace_app/utils/user_preferences.dart';
 import 'package:http/http.dart' as http;
 import '../models/batch_transfer_model.dart';
-import '../config/api_config.dart'; // You'll need to create this with your API base URL
 
 class BatchTransferService {
-  final String baseUrl = ApiConfig.baseUrl;
+  final String baseUrl = ApiEndpoints.baseUrl;
 
   // Start a new batch transfer
   Future<bool> startBatchTransfer(BatchTransfer batchTransfer) async {
@@ -24,18 +25,20 @@ class BatchTransferService {
     }
   }
 
-  // Get batch transfers for a profile
   Future<List<BatchTransfer>> getBatchTransfers({
     required String profileId,
     required String role,
   }) async {
     try {
+      profileId = await UserPreferences.getProfileId();
+      role = await UserPreferences.getUserRole();
+
       final response = await http.get(
         Uri.parse(
           '$baseUrl/get',
         ).replace(queryParameters: {'profile_id': profileId, 'role': role}),
       );
-print(response.body);
+
       if (response.statusCode == 200) {
         final List<dynamic> data = jsonDecode(response.body);
         return data
@@ -43,12 +46,11 @@ print(response.body);
             .toList();
       }
 
-      print(response.body);
       throw Exception('Failed to load batch transfers');
     } catch (e) {
-      // print(response.body);
-      print(e);
-      throw Exception('Failed to get batch transfers: $e');
+      return [];
+
+      // throw Exception('Failed to get batch transfers: $e');
     }
   }
 }

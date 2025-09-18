@@ -20,9 +20,7 @@ class FhirSpecimenService {
           coding: [
             Coding(
               system: FhirUri('http://snomed.info/sct'),
-              code: FhirCode(
-                '100000',
-              ), // Replace with appropriate SNOMED CT code
+              code: FhirCode('100000'),
               display: 'Herbal specimen',
             ),
           ],

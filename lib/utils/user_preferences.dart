@@ -1,28 +1,46 @@
+import 'dart:convert';
+
+import 'package:herbtrace_app/consts/sharedpreferences_consts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class UserPreferences {
-  static const String _profileIdKey = 'profile_id';
-  static const String _userRoleKey = 'user_role';
-  static const String _defaultProfileId = '456';
-  static const String _defaultUserRole = 'farmer';
-
   static Future<String> getProfileId() async {
     final prefs = await SharedPreferences.getInstance();
-    return prefs.getString(_profileIdKey) ?? _defaultProfileId;
+    var x = prefs.getString(SharedPrefKeys.profileId) ?? "";
+    if (x.contains(".")) return x.substring(0, x.indexOf("."));
+    return x;
   }
 
   static Future<void> setProfileId(String profileId) async {
     final prefs = await SharedPreferences.getInstance();
-    await prefs.setString(_profileIdKey, profileId);
+    await prefs.setString(SharedPrefKeys.profileId, profileId);
   }
 
   static Future<String> getUserRole() async {
     final prefs = await SharedPreferences.getInstance();
-    return prefs.getString(_userRoleKey) ?? _defaultUserRole;
+    return prefs.getString(SharedPrefKeys.role) ?? 'farmer';
   }
 
   static Future<void> setUserRole(String role) async {
     final prefs = await SharedPreferences.getInstance();
-    await prefs.setString(_userRoleKey, role);
+    await prefs.setString(SharedPrefKeys.role, role);
+  }
+
+  static Future<void> setProfileData(Map<String, dynamic> data) async {
+    final prefs = await SharedPreferences.getInstance();
+    final String encodedData = jsonEncode(data);
+    await prefs.setString(SharedPrefKeys.profileId, encodedData);
+  }
+
+  static Future<Map<String, dynamic>?> getProfileData() async {
+    final prefs = await SharedPreferences.getInstance();
+    final String? encodedData = prefs.getString(SharedPrefKeys.profileId);
+    if (encodedData == null) return null;
+    return jsonDecode(encodedData) as Map<String, dynamic>;
+  }
+
+  static Future<void> clearPreferences() async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.clear();
   }
 }

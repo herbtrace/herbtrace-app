@@ -23,7 +23,7 @@ class CropDropdown extends StatelessWidget {
       ),
       value: null,
       isExpanded: true,
-      menuMaxHeight: 300,
+      menuMaxHeight: 400,
       items: cropsList.map((crop) {
         return DropdownMenuItem<CropModel>(
           value: crop,

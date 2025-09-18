@@ -24,7 +24,7 @@ class _StatusScreenState extends ConsumerState<StatusScreen> {
 
   Future<void> _loadTransactions() async {
     final profileId = await UserPreferences.getProfileId();
-    ref.read(transactionProvider.notifier).loadTransactions(profileId);
+    ref.read(transactionProvider.notifier).loadTransactions();
   }
 
   @override

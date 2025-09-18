@@ -1,10 +1,12 @@
 import 'dart:convert';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:herbtrace_app/config/constants/api_endpoints.dart';
+import 'package:herbtrace_app/utils/user_preferences.dart';
 import 'package:http/http.dart' as http;
 import 'package:herbtrace_app/models/crop_model.dart';
-import 'package:herbtrace_app/config/api_config.dart';
 import 'package:herbtrace_app/services/crop_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:herbtrace_app/consts/sharedpreferences_consts.dart';
 
 class BatchCropModel {
   final String batchId;
@@ -58,18 +60,17 @@ class TransactionNotifier extends StateNotifier<TransactionState> {
 
   TransactionNotifier() : super(const TransactionState());
 
-  Future<void> loadTransactions(String profileId) async {
+  Future<void> loadTransactions() async {
     state = state.copyWith(isLoading: true, error: null);
     try {
+      final profileId = await UserPreferences.getProfileId();
+      final role = await UserPreferences.getUserRole();
+      print('Fetching batch transfers for profileId: $profileId, role: $role');
       final response = await http.get(
         Uri.parse(
-          '${ApiConfig.baseUrl}/get',
-        ).replace(queryParameters: {'profile_id': profileId, 'role': 'farmer'}),
+          '${ApiEndpoints.baseUrl}/get',
+        ).replace(queryParameters: {'profile_id': profileId, 'role': role}),
       );
-
-      if (response.statusCode != 200) {
-        throw Exception('Failed to load transactions');
-      }
 
       final List<dynamic> data = jsonDecode(response.body);
       final transactions = data
@@ -93,23 +94,24 @@ class TransactionNotifier extends StateNotifier<TransactionState> {
         error: null,
       );
     } catch (e) {
-      print(e);
       state = state.copyWith(
+        activeTransactions: <BatchCropModel>[],
+        crops: {},
         isLoading: false,
-        error: 'Failed to load transactions: $e',
+        error: null,
       );
     }
   }
 
   Future<void> startTransaction(CropModel crop) async {
     state = state.copyWith(isLoading: true, error: null);
-    // Get profileId from SharedPreferences or use "456" as default
+
     final prefs = await SharedPreferences.getInstance();
-    final String profileId = prefs.getString('profileId') ?? "456";
+    final String profileId = prefs.getString('profile_id') ?? "456";
     try {
       final batchId = DateTime.now().millisecondsSinceEpoch.toString();
       final response = await http.post(
-        Uri.parse('${ApiConfig.baseUrl}/start'),
+        Uri.parse('${ApiEndpoints.baseUrl}/start'),
         headers: {'Content-Type': 'application/json'},
         body: jsonEncode({
           'batch_id': batchId,
@@ -123,7 +125,7 @@ class TransactionNotifier extends StateNotifier<TransactionState> {
         throw Exception('Failed to start transaction');
       }
 
-      await loadTransactions(profileId);
+      await loadTransactions();
     } catch (e) {
       state = state.copyWith(
         isLoading: false,

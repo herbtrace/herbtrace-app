@@ -1,6 +1,13 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:herbtrace_app/models/common/collection_event.dart';
+import 'package:herbtrace_app/models/common/lat_long.dart';
+import 'package:herbtrace_app/models/events/processing/processing_event.dart';
+import 'package:herbtrace_app/models/events/transport/transport_event.dart';
+import 'package:herbtrace_app/models/quality/quality_test.dart';
+import 'package:herbtrace_app/services/location/location_service.dart';
+import 'package:herbtrace_app/utils/unique_id.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 import 'package:herbtrace_app/config/theme.dart';
 import 'package:herbtrace_app/models/crop_model.dart';
@@ -35,11 +42,20 @@ class TransactionDetailsScreen extends ConsumerWidget {
       final profileId = await UserPreferences.getProfileId();
       final userRole = await UserPreferences.getUserRole();
 
+      final tempQrData = {
+        'from_id': profileId,
+        'from_role': userRole,
+        'batch_id': transaction.batchId,
+        'start_time': transaction.startTime.toIso8601String(),
+        'crop_id': crop.cropId,
+      };
+
+      final eventData = await _createEventBasedOnRole(userRole, tempQrData);
       final qrData = {
         'from_id': profileId,
         'from_role': userRole,
         'batch_id': transaction.batchId,
-        'data': {},
+        'data': eventData,
       };
 
       if (context.mounted) {
@@ -48,10 +64,89 @@ class TransactionDetailsScreen extends ConsumerWidget {
     }
   }
 
+  Future<Map<String, dynamic>> _createEventBasedOnRole(
+    String role,
+    Map<String, dynamic> qrData,
+  ) async {
+    final now = DateTime.now();
+    final profileId = await UserPreferences.getProfileId();
+
+    final LatLong loc = await LocationService().getCurrentLocation();
+
+    switch (role.toLowerCase()) {
+      case 'farmer':
+        final startDate = qrData['start_time'] != null
+            ? DateTime.parse(qrData['start_time'])
+            : DateTime.now();
+
+        final x = CollectionEvent(
+          batchId: qrData['batch_id'].toString(),
+          profileId: profileId,
+          cropId: qrData['crop_id'] ?? UniqueId.generate(),
+          location: LatLong(
+            latitude: loc.latitude,
+            longitude: loc.longitude,
+            address: "Collection Site",
+          ),
+          startDate: startDate,
+          harvestDate: startDate,
+        );
+
+        return x.toJson();
+
+      case 'processor':
+        final x = ProcessingEvent(
+          processingId: UniqueId.generate(),
+          batchId: qrData['batch_id'],
+          processingCompanyId: profileId,
+          companyLocation: loc,
+          processesApplied: ['Initial Processing'],
+          processConditions: null,
+          startTime: now,
+          endTime: now,
+          visualInspection: [],
+          equipmentCleaned: true,
+        );
+        return x.toJson();
+
+      case 'transporter':
+        final x = TransportEvent(
+          transportId: UniqueId.generate(),
+          batchId: qrData['batch_id'],
+          provenanceFhirUrl: 'http://example.com/fhir', // Default FHIR URL
+          transporterId: profileId,
+          origin: loc,
+          destination: loc, // Will be updated when delivered
+          startTime: now,
+          endTime: now,
+          transportConditions: null, // Make it null since it's optional
+          sealed: true,
+        );
+        return x.toJson();
+
+      case "laboratory":
+        final x = QualityTest(
+          testId: UniqueId.generate(),
+          batchId: qrData['batch_id'],
+          profileId: profileId,
+          dateOfTest: now,
+          testResults: [],
+          certificationReportUrl: '',
+        );
+        print(x.toJson());
+        return x.toJson();
+      // TODO: Add other role cases as needed
+      default:
+        print('Unsupported role: $role');
+        throw Exception('Unsupported role: $role');
+    }
+  }
+
   Future<void> _showQRDialog(
     BuildContext context,
     Map<String, dynamic> qrData,
   ) async {
+    print('Showing QR Dialog with data: $qrData');
     return showDialog(
       context: context,
       builder: (context) => Dialog(

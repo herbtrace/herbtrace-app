@@ -90,7 +90,6 @@ class SnackBarUtil {
     required IconData icon,
     Duration? duration,
   }) {
-    // Clear any existing SnackBar first
     _clearSnackBar(context);
 
     final snackBar = SnackBar(

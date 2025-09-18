@@ -1,7 +1,8 @@
 class ApiEndpoints {
-  static const String baseUrl = 'https://api.herbtrace.com';
+  static const String baseUrl = 'https://7521698e7860.ngrok-free.app';
 
-  static const String login = '/auth/login';
+  static const String checkProfileExists = '/profiles/check_if_user_exists';
+  static const String userLogin = '/profiles/user_login';
   static const String logout = '/auth/logout';
   static const String refreshToken = '/auth/refresh';
 

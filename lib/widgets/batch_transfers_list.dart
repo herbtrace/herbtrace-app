@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import '../models/batch_transfer_model.dart';
 import '../models/crop_model.dart';
-import '../services/batch_transfer_service.dart';
 import './batch_transfer_card.dart';
 
 class BatchTransfersList extends StatelessWidget {
@@ -23,7 +22,7 @@ class BatchTransfersList extends StatelessWidget {
         final crop = crops[transfer.cropId];
 
         if (crop == null) {
-          return const SizedBox.shrink(); // Skip if crop not found
+          return const SizedBox.shrink();
         }
 
         return BatchTransferCard(batchTransfer: transfer, crop: crop);

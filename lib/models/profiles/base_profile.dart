@@ -1,5 +1,5 @@
-import 'package:herbtrace_app/config/constants/app_constants.dart';
 import 'package:herbtrace_app/models/common/lat_long.dart';
+import 'package:herbtrace_app/models/common/profile_type.dart';
 
 abstract class BaseProfile {
   final String id;

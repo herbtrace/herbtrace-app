@@ -39,77 +39,75 @@ class _TransactionScreenState extends ConsumerState<TransactionScreen> {
       appBar: AppBar(title: const Text('New Transaction')),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Card(
-                child: Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text(
-                        'Start New Transaction',
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Card(
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      'Start New Transaction',
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(height: 24),
+                    CropDropdown(
+                      onCropSelected: (crop) {
+                        if (crop != null) {
+                          setState(() => _selectedCrop = crop.cropId);
+                        }
+                      },
+                    ),
+                    const SizedBox(height: 24),
+                    if (_selectedCrop != null) ...[
+                      ElevatedButton.icon(
+                        onPressed: _isValidatingLocation
+                            ? null
+                            : () => _validateAndStartTransaction(),
+                        icon: _isValidatingLocation
+                            ? const SizedBox(
+                                width: 20,
+                                height: 20,
+                                child: CircularProgressIndicator(
+                                  strokeWidth: 2,
+                                  color: Colors.white,
+                                ),
+                              )
+                            : const Icon(Icons.add_location),
+                        label: Text(
+                          _isValidatingLocation
+                              ? 'Validating Location...'
+                              : 'Start',
                         ),
-                      ),
-                      const SizedBox(height: 24),
-                      CropDropdown(
-                        onCropSelected: (crop) {
-                          if (crop != null) {
-                            setState(() => _selectedCrop = crop.cropId);
-                          }
-                        },
-                      ),
-                      const SizedBox(height: 24),
-                      if (_selectedCrop != null) ...[
-                        ElevatedButton.icon(
-                          onPressed: _isValidatingLocation
-                              ? null
-                              : () => _validateAndStartTransaction(),
-                          icon: _isValidatingLocation
-                              ? const SizedBox(
-                                  width: 20,
-                                  height: 20,
-                                  child: CircularProgressIndicator(
-                                    strokeWidth: 2,
-                                    color: Colors.white,
-                                  ),
-                                )
-                              : const Icon(Icons.add_location),
-                          label: Text(
-                            _isValidatingLocation
-                                ? 'Validating Location...'
-                                : 'Start',
-                          ),
-                          style: ElevatedButton.styleFrom(
-                            padding: const EdgeInsets.symmetric(
-                              vertical: 16,
-                              horizontal: 24,
-                            ),
+                        style: ElevatedButton.styleFrom(
+                          padding: const EdgeInsets.symmetric(
+                            vertical: 16,
+                            horizontal: 24,
                           ),
                         ),
-                      ],
+                      ),
                     ],
+                  ],
+                ),
+              ),
+            ),
+            if (transactionState.error != null)
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 16.0),
+                child: Text(
+                  transactionState.error!,
+                  style: const TextStyle(
+                    color: Colors.red,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
               ),
-              if (transactionState.error != null)
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 16.0),
-                  child: Text(
-                    transactionState.error!,
-                    style: const TextStyle(
-                      color: Colors.red,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                ),
-            ],
-          ),
+          ],
         ),
       ),
     );

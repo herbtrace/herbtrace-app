@@ -67,6 +67,7 @@ class ApiService {
   }
 
   Exception _handleError(DioException e) {
+    print(e);
     switch (e.type) {
       case DioExceptionType.connectionTimeout:
       case DioExceptionType.receiveTimeout:

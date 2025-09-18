@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:herbtrace_app/config/theme.dart';
 import 'package:herbtrace_app/providers/common/profile_provider.dart';
+import 'package:herbtrace_app/screens/welcome_screen.dart';
+import 'package:herbtrace_app/services/language_service.dart';
 
 class AppDrawer extends ConsumerWidget {
   const AppDrawer({super.key});
@@ -67,9 +69,18 @@ class AppDrawer extends ConsumerWidget {
           ListTile(
             leading: const Icon(Icons.logout),
             title: const Text('Logout'),
-            onTap: () {
+            onTap: () async {
               Navigator.pop(context);
-              // TODO: Implement logout
+              final prefs = ref.read(sharedPreferencesProvider);
+              prefs.clear();
+              if (context.mounted) {
+                Navigator.of(context).pushAndRemoveUntil(
+                  MaterialPageRoute(
+                    builder: (context) => const WelcomeScreen(),
+                  ),
+                  (route) => false,
+                );
+              }
             },
           ),
         ],

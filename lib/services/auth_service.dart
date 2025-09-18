@@ -2,14 +2,28 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/material.dart' show debugPrint;
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:herbtrace_app/models/common/profile_type.dart';
+import 'package:herbtrace_app/providers/common/profile_provider.dart';
+import 'package:herbtrace_app/services/auth/login_service.dart';
+import 'package:herbtrace_app/services/profile_check_service.dart';
+import 'package:herbtrace_app/utils/user_preferences.dart';
 
 class AuthService {
   static final AuthService _instance = AuthService._internal();
   factory AuthService() => _instance;
-  AuthService._internal();
 
-  String? _currentOTP;
+  late final ProfileCheckService _profileCheckService;
+  late final LoginService _loginService;
   Timer? _otpTimer;
+  String? _currentOTP;
+
+  Future<void> init() async {
+    _profileCheckService = ProfileCheckService();
+    _loginService = LoginService();
+  }
+
+  AuthService._internal();
 
   String _generateOTP() {
     final random = Random();
@@ -34,6 +48,11 @@ class AuthService {
       throw Exception('Invalid phone number');
     }
 
+    final exists = await _profileCheckService.checkIfProfileExists(phone);
+    if (!exists) {
+      throw Exception('No profile found with this phone number');
+    }
+
     await Future.delayed(const Duration(seconds: 1));
     final otp = _generateOTP();
 
@@ -45,6 +64,11 @@ class AuthService {
       throw Exception('Invalid email address');
     }
 
+    final exists = await _profileCheckService.checkIfProfileExists(email);
+    if (!exists) {
+      throw Exception('No profile found with this email address');
+    }
+
     await Future.delayed(const Duration(seconds: 1));
     final otp = _generateOTP();
 
@@ -54,6 +78,19 @@ class AuthService {
   bool verifyOTP(String enteredOTP) {
     if (_currentOTP == null) return false;
     return _currentOTP == enteredOTP;
+  }
+
+  Future<void> completeLogin(String profileId, WidgetRef ref) async {
+    final loginData = await _loginService.loginUser(profileId);
+    ref.read(profileTypeProvider.notifier).state = ProfileType.fromString(
+      loginData['role'] as String,
+    );
+
+    await Future.wait([
+      UserPreferences.setUserRole(loginData['role']),
+      UserPreferences.setProfileId(profileId),
+      UserPreferences.setProfileData(loginData['data'] as Map<String, dynamic>),
+    ]);
   }
 
   void startOTPTimer(Function() onTimerComplete) {

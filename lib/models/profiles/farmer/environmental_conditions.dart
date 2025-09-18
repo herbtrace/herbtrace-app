@@ -1,5 +1,3 @@
-import 'package:herbtrace_app/models/common/lat_long.dart';
-
 class EnvironmentalConditions {
   final String? soilQuality;
   final double? moisture;
@@ -18,21 +16,21 @@ class EnvironmentalConditions {
   });
 
   Map<String, dynamic> toJson() => {
-    if (soilQuality != null) 'soilQuality': soilQuality,
+    if (soilQuality != null) 'soil_quality': soilQuality,
     if (moisture != null) 'moisture': moisture,
     if (temperature != null) 'temperature': temperature,
     if (humidity != null) 'humidity': humidity,
-    if (weatherConditions != null) 'weatherConditions': weatherConditions,
-    if (irrigationMethod != null) 'irrigationMethod': irrigationMethod,
+    if (weatherConditions != null) 'weather_conditions': weatherConditions,
+    if (irrigationMethod != null) 'irrigation_method': irrigationMethod,
   };
 
   factory EnvironmentalConditions.fromJson(Map<String, dynamic> json) =>
       EnvironmentalConditions(
-        soilQuality: json['soilQuality'] as String?,
+        soilQuality: json['soil_quality'] as String?,
         moisture: json['moisture'] as double?,
         temperature: json['temperature'] as double?,
         humidity: json['humidity'] as double?,
-        weatherConditions: json['weatherConditions'] as String?,
-        irrigationMethod: json['irrigationMethod'] as String?,
+        weatherConditions: json['weather_conditions'] as String?,
+        irrigationMethod: json['irrigation_method'] as String?,
       );
 }

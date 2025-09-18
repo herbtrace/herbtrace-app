@@ -3,25 +3,51 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:herbtrace_app/config/theme.dart';
 import 'package:herbtrace_app/models/common/lat_long.dart';
 import 'package:herbtrace_app/models/profiles/farmer/farmer_profile.dart';
-import 'package:herbtrace_app/providers/common/profile_provider.dart';
+import 'package:herbtrace_app/utils/user_preferences.dart';
+// import 'package:herbtrace_app/providers/common/profile_provider.dart';
 
-class FarmerProfileScreen extends ConsumerWidget {
+class FarmerProfileScreen extends ConsumerStatefulWidget {
   const FarmerProfileScreen({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    // final profile = ref.watch(currentProfileProvider) as FarmerProfile?;
+  ConsumerState<FarmerProfileScreen> createState() =>
+      _FarmerProfileScreenState();
+}
+
+class _FarmerProfileScreenState extends ConsumerState<FarmerProfileScreen> {
+  String? profileId;
+  String? role;
+  bool isLoading = true;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadPreferences();
+  }
+
+  Future<void> _loadPreferences() async {
+    final id = await UserPreferences.getProfileId();
+    final userRole = await UserPreferences.getUserRole();
+    setState(() {
+      profileId = id;
+      role = userRole;
+      isLoading = false;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    if (isLoading) {
+      return const Center(child: CircularProgressIndicator());
+    }
+
     final profile = FarmerProfile(
       aadharNumber: String.fromCharCode(0),
-      id: '',
+      id: profileId ?? '',
       name: 'Super man',
       phoneNumber: '',
       location: LatLong(latitude: 0, longitude: 0),
     );
-
-    if (profile == null) {
-      return const Center(child: CircularProgressIndicator());
-    }
 
     return SingleChildScrollView(
       padding: const EdgeInsets.all(16.0),
@@ -35,6 +61,14 @@ class FarmerProfileScreen extends ConsumerWidget {
               fontWeight: FontWeight.bold,
             ),
           ),
+          Text(
+            profileId!,
+            style: Theme.of(
+              context,
+            ).textTheme.titleMedium?.copyWith(color: AppTheme.textSecondary),
+          ),
+
+          Text(role ?? 'Farmer'),
           const SizedBox(height: 24),
           _buildDashboardCard(
             title: 'Start New Transaction',

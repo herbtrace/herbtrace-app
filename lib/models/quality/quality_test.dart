@@ -2,8 +2,8 @@ import 'test_results.dart';
 
 class QualityTest {
   final String testId;
-  final int batchId;
-  final String labId;
+  final String batchId;
+  final String profileId;
   final DateTime dateOfTest;
   final List<TestResults> testResults;
   final String certificationReportUrl;
@@ -12,7 +12,7 @@ class QualityTest {
   QualityTest({
     required this.testId,
     required this.batchId,
-    required this.labId,
+    required this.profileId,
     required this.dateOfTest,
     required this.testResults,
     required this.certificationReportUrl,
@@ -22,8 +22,8 @@ class QualityTest {
   factory QualityTest.fromJson(Map<String, dynamic> json) {
     return QualityTest(
       testId: json['test_id'] as String,
-      batchId: json['batch_id'] as int,
-      labId: json['lab_id'] as String,
+      batchId: json['batch_id'] as String,
+      profileId: json['profile_id'] as String,
       dateOfTest: DateTime.parse(json['date_of_test']),
       testResults: (json['test_results'] as List)
           .map((result) => TestResults.fromJson(result))
@@ -36,7 +36,7 @@ class QualityTest {
   Map<String, dynamic> toJson() => {
     'test_id': testId,
     'batch_id': batchId,
-    'lab_id': labId,
+    'profile_id': profileId,
     'date_of_test': dateOfTest.toIso8601String(),
     'test_results': testResults.map((result) => result.toJson()).toList(),
     'certification_report_url': certificationReportUrl,
