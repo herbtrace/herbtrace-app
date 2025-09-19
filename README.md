@@ -1,12 +1,12 @@
 # HerbTrace App
 
-HerbTrace is a Flutter application designed for traceability, quality assurance, and digital record-keeping in the herbal and medicinal plant supply chain. It empowers stakeholders—such as farmers, wild collectors, processors, laboratories, manufacturers, and packers—to ensure sustainable, compliant, and transparent operations from field to finished product.
+HerbTrace is a Flutter application designed for traceability, quality assurance, and digital record-keeping in the herbal and medicinal plant supply chain. It empowers stakeholders such as farmers, wild collectors, processors, laboratories, manufacturers, and packers to ensure sustainable, compliant, and transparent operations from field to finished product.
 
 ## Features
 
 - **Multi-role Support:** Profiles for farmers, wild collectors, processors, laboratories, manufacturers, and packers, each with tailored dashboards and workflows.
 - **Crop Data Management:** Detailed records for medicinal plants including origin, harvest windows, quality standards (moisture, residue, heavy metals), and recommended practices.
-- **Traceability:** Track every step—collection, processing, testing, packing—using digital event logs and QR-code-based batch tracking.
+- **Traceability:** Track every step collection, processing, testing, packing using digital event logs and QR-code-based batch tracking.
 - **Quality & Compliance:** Built-in quality parameter checks for FSSAI and Ayush guidelines, with support for lab testing and certification uploads.
 - **Localization:** Multi-language support (including Kannada, Hindi, Sanskrit, Malayalam, Tamil).
 - **Authentication & User Profiles:** OTP login and secure profile management for all user types.
