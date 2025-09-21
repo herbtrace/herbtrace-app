@@ -1,6 +1,8 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:herbtrace_app/config/theme.dart';
+
+import 'package:herbtrace_app/generated/app_localizations.dart';
 import 'package:herbtrace_app/services/transaction_service.dart';
 import 'package:herbtrace_app/utils/user_preferences.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
@@ -51,7 +53,7 @@ class _QRScannerScreenState extends State<QRScannerScreen> {
         context: context,
         barrierDismissible: false,
         builder: (context) => AlertDialog(
-          title: const Text('Confirm Transfer'),
+          title: Text(AppLocalizations.of(context)!.scan),
           content: SingleChildScrollView(
             child: Column(
               mainAxisSize: MainAxisSize.min,
@@ -63,9 +65,9 @@ class _QRScannerScreenState extends State<QRScannerScreen> {
                 const SizedBox(height: 8),
                 Text('To: $currentProfileId ($currentUserRole)'),
                 const SizedBox(height: 16),
-                const Text(
-                  'Transaction Details:',
-                  style: TextStyle(fontWeight: FontWeight.bold),
+                Text(
+                  AppLocalizations.of(context)!.transaction_history,
+                  style: const TextStyle(fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 8),
                 Text(
@@ -83,7 +85,7 @@ class _QRScannerScreenState extends State<QRScannerScreen> {
             ),
             FilledButton(
               onPressed: () => Navigator.pop(context, true),
-              child: const Text('Confirm Transfer'),
+              child: Text(AppLocalizations.of(context)!.scan),
             ),
           ],
         ),
@@ -102,7 +104,7 @@ class _QRScannerScreenState extends State<QRScannerScreen> {
           await showDialog(
             context: context,
             builder: (context) => AlertDialog(
-              title: const Text('Transfer Successful'),
+              title: Text(AppLocalizations.of(context)!.transaction_history),
               content: const Text(
                 'The batch has been transferred successfully.',
               ),
@@ -126,7 +128,7 @@ class _QRScannerScreenState extends State<QRScannerScreen> {
       await showDialog(
         context: context,
         builder: (context) => AlertDialog(
-          title: const Text('Error'),
+          title: Text(AppLocalizations.of(context)!.scan),
           content: Text('Failed to process QR code: ${e.toString()}'),
           actions: [
             TextButton(
@@ -136,8 +138,6 @@ class _QRScannerScreenState extends State<QRScannerScreen> {
           ],
         ),
       );
-
-      await _controller?.start();
     } finally {
       if (mounted) {
         setState(() => _isProcessing = false);
@@ -149,17 +149,23 @@ class _QRScannerScreenState extends State<QRScannerScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Scan QR Code'),
+        title: Text(AppLocalizations.of(context)!.scan),
         actions: [
           IconButton(
             icon: ValueListenableBuilder(
-              valueListenable: _controller?.torchState ?? ValueNotifier(false),
+              valueListenable: ValueNotifier(
+                _controller?.torchEnabled,
+              ), //?? ValueNotifier(false),
               builder: (context, state, child) {
                 switch (state as TorchState) {
                   case TorchState.off:
                     return const Icon(Icons.flash_off);
                   case TorchState.on:
                     return const Icon(Icons.flash_on);
+                  case TorchState.unavailable:
+                    return const Icon(Icons.flash_off, color: Colors.grey);
+                  case TorchState.auto:
+                    return const Icon(Icons.flash_auto);
                 }
               },
             ),

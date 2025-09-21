@@ -8,10 +8,12 @@ class UserPreferences {
     final prefs = await SharedPreferences.getInstance();
     var x = prefs.getString(SharedPrefKeys.profileId) ?? "";
     if (x.contains(".")) return x.substring(0, x.indexOf("."));
+    print(x);
     return x;
   }
 
   static Future<void> setProfileId(String profileId) async {
+    print(profileId);
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString(SharedPrefKeys.profileId, profileId);
   }
@@ -29,7 +31,7 @@ class UserPreferences {
   static Future<void> setProfileData(Map<String, dynamic> data) async {
     final prefs = await SharedPreferences.getInstance();
     final String encodedData = jsonEncode(data);
-    await prefs.setString(SharedPrefKeys.profileId, encodedData);
+    await prefs.setString(SharedPrefKeys.profileData, encodedData);
   }
 
   static Future<Map<String, dynamic>?> getProfileData() async {

@@ -3,6 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:herbtrace_app/config/theme.dart';
 import 'package:herbtrace_app/consts/sharedpreferences_consts.dart';
 import 'package:herbtrace_app/generated/app_localizations.dart';
+import 'package:herbtrace_app/models/common/profile_type.dart';
+import 'package:herbtrace_app/providers/common/profile_provider.dart';
 import 'package:herbtrace_app/screens/common/home_screen.dart';
 import 'package:herbtrace_app/screens/welcome_screen.dart';
 import 'package:herbtrace_app/services/language_service.dart';
@@ -26,9 +28,16 @@ class HerbTraceApp extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      ref.read(profileTypeProvider.notifier).state = ProfileType.fromString(
+        prefs.getString(SharedPrefKeys.role) ?? '',
+      );
+    });
+
     final locale = ref.watch(languageServiceProvider);
     return MaterialApp(
       title: 'HerbTrace',
+      debugShowCheckedModeBanner: false,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       locale: locale,

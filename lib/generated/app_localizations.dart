@@ -100,6 +100,12 @@ abstract class AppLocalizations {
     Locale('kn'),
   ];
 
+  /// No description provided for @select_this_crop.
+  ///
+  /// In en, this message translates to:
+  /// **'Select This Crop'**
+  String get select_this_crop;
+
   /// No description provided for @welcome.
   ///
   /// In en, this message translates to:
@@ -135,6 +141,90 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Select Language'**
   String get select_language;
+
+  /// No description provided for @add_crop.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Crop'**
+  String get add_crop;
+
+  /// No description provided for @no_active_transactions.
+  ///
+  /// In en, this message translates to:
+  /// **'No active transactions'**
+  String get no_active_transactions;
+
+  /// No description provided for @profile.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile'**
+  String get profile;
+
+  /// No description provided for @scan.
+  ///
+  /// In en, this message translates to:
+  /// **'Scan'**
+  String get scan;
+
+  /// No description provided for @home.
+  ///
+  /// In en, this message translates to:
+  /// **'Home'**
+  String get home;
+
+  /// No description provided for @transaction_history.
+  ///
+  /// In en, this message translates to:
+  /// **'Transaction History'**
+  String get transaction_history;
+
+  /// No description provided for @settings.
+  ///
+  /// In en, this message translates to:
+  /// **'Settings'**
+  String get settings;
+
+  /// No description provided for @change_language.
+  ///
+  /// In en, this message translates to:
+  /// **'Change Language'**
+  String get change_language;
+
+  /// No description provided for @logout.
+  ///
+  /// In en, this message translates to:
+  /// **'Logout'**
+  String get logout;
+
+  /// The common name for Withania somnifera
+  ///
+  /// In en, this message translates to:
+  /// **'Ashwagandha'**
+  String get cropNameAshwagandha;
+
+  /// The common name for Bacopa monnieri
+  ///
+  /// In en, this message translates to:
+  /// **'Brahmi'**
+  String get cropNameBrahmi;
+
+  /// The common name for Tinospora cordifolia
+  ///
+  /// In en, this message translates to:
+  /// **'Giloy'**
+  String get cropNameGiloy;
+
+  /// The common name for Ocimum sanctum
+  ///
+  /// In en, this message translates to:
+  /// **'Tulsi'**
+  String get cropNameTulsi;
+
+  /// The common name for Terminalia arjuna
+  ///
+  /// In en, this message translates to:
+  /// **'Arjuna'**
+  String get cropNameArjuna;
 }
 
 class _AppLocalizationsDelegate

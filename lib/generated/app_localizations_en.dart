@@ -9,6 +9,9 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
+  String get select_this_crop => 'Select This Crop';
+
+  @override
   String get welcome => 'Welcome';
 
   @override
@@ -25,4 +28,46 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get select_language => 'Select Language';
+
+  @override
+  String get add_crop => 'Add Crop';
+
+  @override
+  String get no_active_transactions => 'No active transactions';
+
+  @override
+  String get profile => 'Profile';
+
+  @override
+  String get scan => 'Scan';
+
+  @override
+  String get home => 'Home';
+
+  @override
+  String get transaction_history => 'Transaction History';
+
+  @override
+  String get settings => 'Settings';
+
+  @override
+  String get change_language => 'Change Language';
+
+  @override
+  String get logout => 'Logout';
+
+  @override
+  String get cropNameAshwagandha => 'Ashwagandha';
+
+  @override
+  String get cropNameBrahmi => 'Brahmi';
+
+  @override
+  String get cropNameGiloy => 'Giloy';
+
+  @override
+  String get cropNameTulsi => 'Tulsi';
+
+  @override
+  String get cropNameArjuna => 'Arjuna';
 }

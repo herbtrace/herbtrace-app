@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:herbtrace_app/config/theme.dart';
+import 'package:herbtrace_app/generated/app_localizations.dart';
 import 'package:herbtrace_app/providers/common/profile_provider.dart';
 import 'package:herbtrace_app/screens/welcome_screen.dart';
 import 'package:herbtrace_app/services/language_service.dart';
+import 'package:herbtrace_app/widgets/alert_dialogs/language_selection_dialog.dart';
 
 class AppDrawer extends ConsumerWidget {
   const AppDrawer({super.key});
@@ -44,14 +46,14 @@ class AppDrawer extends ConsumerWidget {
           ),
           ListTile(
             leading: const Icon(Icons.home),
-            title: const Text('Home'),
+            title: Text(AppLocalizations.of(context)!.home),
             onTap: () {
               Navigator.pop(context);
             },
           ),
           ListTile(
             leading: const Icon(Icons.history),
-            title: const Text('Transaction History'),
+            title: Text(AppLocalizations.of(context)!.transaction_history),
             onTap: () {
               Navigator.pop(context);
               // TODO: Navigate to transaction history
@@ -59,16 +61,28 @@ class AppDrawer extends ConsumerWidget {
           ),
           ListTile(
             leading: const Icon(Icons.settings),
-            title: const Text('Settings'),
+            title: Text(AppLocalizations.of(context)!.settings),
             onTap: () {
               Navigator.pop(context);
               // TODO: Navigate to settings
             },
           ),
+
+          ListTile(
+            leading: const Icon(Icons.language),
+            title: Text(AppLocalizations.of(context)!.change_language),
+            onTap: () {
+              Navigator.pop(context);
+              showDialog(
+                context: context,
+                builder: (context) => const LanguageSelectionDialog(),
+              );
+            },
+          ),
           const Divider(),
           ListTile(
             leading: const Icon(Icons.logout),
-            title: const Text('Logout'),
+            title: Text(AppLocalizations.of(context)!.logout),
             onTap: () async {
               Navigator.pop(context);
               final prefs = ref.read(sharedPreferencesProvider);

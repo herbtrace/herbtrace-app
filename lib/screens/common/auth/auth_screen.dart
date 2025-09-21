@@ -143,6 +143,7 @@ class _AuthScreenState extends ConsumerState<AuthScreen>
     try {
       final isValid = _authService.verifyOTP(_otpController.text);
       if (isValid) {
+        print(_otpController.text);
         await _authService.completeLogin(_idController.text, ref);
 
         if (mounted) {

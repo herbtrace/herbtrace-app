@@ -7,7 +7,6 @@ import 'package:herbtrace_app/models/profiles/farmer/farmer_profile.dart';
 import 'package:herbtrace_app/widgets/crop_dropdown.dart';
 import 'package:herbtrace_app/providers/common/profile_provider.dart';
 import 'package:herbtrace_app/providers/profiles/farmer/transaction_provider.dart';
-import 'package:herbtrace_app/services/location/location_service.dart';
 
 class TransactionScreen extends ConsumerStatefulWidget {
   const TransactionScreen({super.key});
@@ -22,7 +21,7 @@ class _TransactionScreenState extends ConsumerState<TransactionScreen> {
 
   @override
   Widget build(BuildContext context) {
-    var profile = ref.watch(currentProfileProvider) as FarmerProfile?;
+    var profile = ref.watch(currentProfileProvider);
     final transactionState = ref.watch(transactionProvider);
 
     profile ??= FarmerProfile(
@@ -119,7 +118,6 @@ class _TransactionScreenState extends ConsumerState<TransactionScreen> {
     setState(() => _isValidatingLocation = true);
 
     try {
-      final LatLong loc = await LocationService().getCurrentLocation();
       final cropsList = crops
           .map((cropData) => CropModel.fromJson(cropData))
           .toList();

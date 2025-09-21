@@ -113,13 +113,13 @@ class TransactionDetailsScreen extends ConsumerWidget {
         final x = TransportEvent(
           transportId: UniqueId.generate(),
           batchId: qrData['batch_id'],
-          provenanceFhirUrl: 'http://example.com/fhir', // Default FHIR URL
+          provenanceFhirUrl: 'http://example.com/fhir',
           transporterId: profileId,
           origin: loc,
-          destination: loc, // Will be updated when delivered
+          destination: loc,
           startTime: now,
           endTime: now,
-          transportConditions: null, // Make it null since it's optional
+          transportConditions: null,
           sealed: true,
         );
         return x.toJson();

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:herbtrace_app/config/theme.dart';
-import 'package:herbtrace_app/utils/user_preferences.dart';
+import 'package:herbtrace_app/generated/app_localizations.dart';
 import 'package:herbtrace_app/providers/profiles/farmer/transaction_provider.dart';
 import 'package:herbtrace_app/screens/profiles/farmer/transaction/transaction_screen.dart';
 import 'package:herbtrace_app/screens/profiles/farmer/transaction/transaction_details_screen.dart';
@@ -19,11 +19,10 @@ class _StatusScreenState extends ConsumerState<StatusScreen> {
   @override
   void initState() {
     super.initState();
-    _loadTransactions();
+    Future.microtask(() => _loadTransactions());
   }
 
   Future<void> _loadTransactions() async {
-    final profileId = await UserPreferences.getProfileId();
     ref.read(transactionProvider.notifier).loadTransactions();
   }
 
@@ -51,7 +50,7 @@ class _StatusScreenState extends ConsumerState<StatusScreen> {
         padding: const EdgeInsets.all(16.0),
         children: [
           PrimaryButton(
-            text: 'Start',
+            text: AppLocalizations.of(context)!.start,
             onPressed: () {
               Navigator.push(
                 context,
@@ -62,9 +61,9 @@ class _StatusScreenState extends ConsumerState<StatusScreen> {
             },
           ),
           if (transactionState.activeTransactions.isNotEmpty) ...[
-            const Text(
-              'Active Transactions',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            Text(
+              AppLocalizations.of(context)!.transaction_history,
+              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 16),
             ...transactionState.activeTransactions.map(
@@ -89,12 +88,15 @@ class _StatusScreenState extends ConsumerState<StatusScreen> {
               ),
             ),
           ] else
-            const Center(
+            Center(
               child: Padding(
-                padding: EdgeInsets.symmetric(vertical: 32.0),
+                padding: const EdgeInsets.symmetric(vertical: 32.0),
                 child: Text(
-                  'No active transactions',
-                  style: TextStyle(color: AppTheme.textSecondary, fontSize: 16),
+                  AppLocalizations.of(context)!.no_active_transactions,
+                  style: const TextStyle(
+                    color: AppTheme.textSecondary,
+                    fontSize: 16,
+                  ),
                 ),
               ),
             ),

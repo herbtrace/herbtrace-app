@@ -9,6 +9,9 @@ class AppLocalizationsHi extends AppLocalizations {
   AppLocalizationsHi([String locale = 'hi']) : super(locale);
 
   @override
+  String get select_this_crop => 'इस फसल का चयन करें';
+
+  @override
   String get welcome => 'स्वागत है';
 
   @override
@@ -25,4 +28,46 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get select_language => 'भाषा चुनें';
+
+  @override
+  String get add_crop => 'फसल जोड़ें';
+
+  @override
+  String get no_active_transactions => 'कोई सक्रिय लेनदेन नहीं';
+
+  @override
+  String get profile => 'प्रोफ़ाइल';
+
+  @override
+  String get scan => 'स्कैन';
+
+  @override
+  String get home => 'होम';
+
+  @override
+  String get transaction_history => 'लेन-देन का इतिहास';
+
+  @override
+  String get settings => 'सेटिंग्स';
+
+  @override
+  String get change_language => 'भाषा बदलें';
+
+  @override
+  String get logout => 'लॉग आउट';
+
+  @override
+  String get cropNameAshwagandha => 'अश्वगंधा';
+
+  @override
+  String get cropNameBrahmi => 'ब्राह्मी';
+
+  @override
+  String get cropNameGiloy => 'गिलोय';
+
+  @override
+  String get cropNameTulsi => 'तुलसी';
+
+  @override
+  String get cropNameArjuna => 'अर्जुन';
 }

@@ -1,9 +1,39 @@
 {
   "@@locale": "hi",
+  "select_this_crop": "इस फसल का चयन करें",
   "welcome": "स्वागत है",
   "welcome_to_herbtrace": "हर्बट्रेस में आपका स्वागत है",
   "login": "लॉगिन",
   "start": "शुरू करें",
   "end": "समाप्त करें",
-  "select_language": "भाषा चुनें"
+  "select_language": "भाषा चुनें",
+  "add_crop": "फसल जोड़ें",
+  "no_active_transactions": "कोई सक्रिय लेनदेन नहीं",
+  "profile": "प्रोफ़ाइल",
+  "scan": "स्कैन",
+  "home": "होम",
+  "transaction_history": "लेन-देन का इतिहास",
+  "settings": "सेटिंग्स",
+  "change_language": "भाषा बदलें",
+  "logout": "लॉग आउट",
+  "cropNameAshwagandha": "अश्वगंधा",
+  "@cropNameAshwagandha": {
+    "description": "The common name for Withania somnifera"
+  },
+  "cropNameBrahmi": "ब्राह्मी",
+  "@cropNameBrahmi": {
+    "description": "The common name for Bacopa monnieri"
+  },
+  "cropNameGiloy": "गिलोय",
+  "@cropNameGiloy": {
+    "description": "The common name for Tinospora cordifolia"
+  },
+  "cropNameTulsi": "तुलसी",
+  "@cropNameTulsi": {
+    "description": "The common name for Ocimum sanctum"
+  },
+  "cropNameArjuna": "अर्जुन",
+  "@cropNameArjuna": {
+    "description": "The common name for Terminalia arjuna"
+  }
 }

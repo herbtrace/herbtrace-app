@@ -1,9 +1,39 @@
 {
   "@@locale": "en",
+  "select_this_crop": "Select This Crop",
   "welcome": "Welcome",
   "welcome_to_herbtrace": "Welcome to herbtrace",
   "login": "Login",
   "start": "Start",
   "end": "End",
-  "select_language": "Select Language"
+  "select_language": "Select Language",
+  "add_crop": "Add Crop",
+  "no_active_transactions": "No active transactions",
+  "profile": "Profile",
+  "scan": "Scan",
+  "home": "Home",
+  "transaction_history": "Transaction History",
+  "settings": "Settings",
+  "change_language": "Change Language",
+  "logout": "Logout",
+  "cropNameAshwagandha": "Ashwagandha",
+  "@cropNameAshwagandha": {
+    "description": "The common name for Withania somnifera"
+  },
+  "cropNameBrahmi": "Brahmi",
+  "@cropNameBrahmi": {
+    "description": "The common name for Bacopa monnieri"
+  },
+  "cropNameGiloy": "Giloy",
+  "@cropNameGiloy": {
+    "description": "The common name for Tinospora cordifolia"
+  },
+  "cropNameTulsi": "Tulsi",
+  "@cropNameTulsi": {
+    "description": "The common name for Ocimum sanctum"
+  },
+  "cropNameArjuna": "Arjuna",
+  "@cropNameArjuna": {
+    "description": "The common name for Terminalia arjuna"
+  }
 }

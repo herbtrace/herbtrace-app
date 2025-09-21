@@ -2,6 +2,8 @@ const crops = [
   {
     "resourceType": "MedicinalPlantResource",
     "id": "ayurvedic-plant-1",
+    "image_url":
+        "https://firebasestorage.googleapis.com/v0/b/sad-auth-a790c.firebasestorage.app/o/ashwagandha.jpg?alt=media&token=94663deb-4b48-4865-bd3e-b36535a64c2e",
     "species_common_name": "Ashwagandha",
     "species_scientific_name": "Withania somnifera",
     "approved_collection_regions": [
@@ -40,6 +42,8 @@ const crops = [
     "id": "ayurvedic-plant-2",
     "species_common_name": "Brahmi",
     "species_scientific_name": "Bacopa monnieri",
+    "image_url":
+        "https://firebasestorage.googleapis.com/v0/b/sad-auth-a790c.firebasestorage.app/o/brahmi.jpg?alt=media&token=2f21a8be-b7e7-4a48-a6ab-d08fb721bd3a",
     "approved_collection_regions": [
       {
         "region_name": "Uttarakhand",
@@ -73,6 +77,8 @@ const crops = [
     "id": "ayurvedic-plant-3",
     "species_common_name": "Giloy",
     "species_scientific_name": "Tinospora cordifolia",
+    "image_url":
+        "https://firebasestorage.googleapis.com/v0/b/sad-auth-a790c.firebasestorage.app/o/giloy.jpg?alt=media&token=e574ea0d-fee1-48bc-8c60-7e638e5762d0",
     "approved_collection_regions": [
       {
         "region_name": "Madhya Pradesh",
@@ -106,6 +112,8 @@ const crops = [
     "id": "ayurvedic-plant-4",
     "species_common_name": "Tulsi",
     "species_scientific_name": "Ocimum sanctum",
+    "image_url":
+        "https://firebasestorage.googleapis.com/v0/b/sad-auth-a790c.firebasestorage.app/o/tulsi.jpg?alt=media&token=841b83d9-49b1-46ec-ab22-8b02006aa00e",
     "approved_collection_regions": [
       {
         "region_name": "Uttarakhand",
@@ -144,6 +152,8 @@ const crops = [
     "id": "ayurvedic-plant-5",
     "species_common_name": "Arjuna",
     "species_scientific_name": "Terminalia arjuna",
+    "image_url":
+        "https://firebasestorage.googleapis.com/v0/b/sad-auth-a790c.firebasestorage.app/o/arjuna.jpg?alt=media&token=1c5945b2-6703-4e8d-b362-400f41f1db61",
     "approved_collection_regions": [
       {
         "region_name": "Madhya Pradesh",

@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:herbtrace_app/config/constants/api_endpoints.dart';
 import 'package:herbtrace_app/utils/user_preferences.dart';
@@ -6,7 +7,6 @@ import 'package:http/http.dart' as http;
 import 'package:herbtrace_app/models/crop_model.dart';
 import 'package:herbtrace_app/services/crop_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:herbtrace_app/consts/sharedpreferences_consts.dart';
 
 class BatchCropModel {
   final String batchId;
@@ -65,13 +65,13 @@ class TransactionNotifier extends StateNotifier<TransactionState> {
     try {
       final profileId = await UserPreferences.getProfileId();
       final role = await UserPreferences.getUserRole();
-      print('Fetching batch transfers for profileId: $profileId, role: $role');
+
       final response = await http.get(
         Uri.parse(
           '${ApiEndpoints.baseUrl}/get',
         ).replace(queryParameters: {'profile_id': profileId, 'role': role}),
       );
-
+      print(response.body);
       final List<dynamic> data = jsonDecode(response.body);
       final transactions = data
           .map((json) => BatchCropModel.fromJson(json))

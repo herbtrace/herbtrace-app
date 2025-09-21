@@ -1,9 +1,39 @@
 {
   "@@locale": "kn",
+  "select_this_crop": "ಈ ಬೆಳೆಯನ್ನು ಆಯ್ಕೆ ಮಾಡಿ",
   "welcome": "ಸ್ವಾಗತ",
   "welcome_to_herbtrace": "ಹರ್ಬ್‌ಟ್ರೇಸ್‌ಗೆ ಸ್ವಾಗತ",
   "login": "ಲಾಗಿನ್",
   "start": "ಪ್ರಾರಂಭಿಸಿ",
   "end": "ಅಂತ್ಯ",
-  "select_language": "ಭಾಷೆಯನ್ನು ಆಯ್ಕೆ ಮಾಡಿ"
+  "select_language": "ಭಾಷೆಯನ್ನು ಆಯ್ಕೆ ಮಾಡಿ",
+  "add_crop": "ಬೆಳೆ ಸೇರಿಸಿ",
+  "no_active_transactions": "ಯಾವುದೇ ಸಕ್ರಿಯ ವಹಿವಾಟುಗಳಿಲ್ಲ",
+  "profile": "ಪ್ರೊಫೈಲ್",
+  "scan": "ಸ್ಕ್ಯಾನ್",
+  "home": "ಮುಖಪುಟ",
+  "transaction_history": "ವಹಿವಾಟು ಇತಿಹಾಸ",
+  "settings": "ಸೆಟ್ಟಿಂಗ್‌ಗಳು",
+  "change_language": "ಭಾಷೆ ಬದಲಾಯಿಸಿ",
+  "logout": "ಲಾಗ್ ಔಟ್",
+  "cropNameAshwagandha": "ಅಶ್ವಗಂಧ",
+  "@cropNameAshwagandha": {
+    "description": "The common name for Withania somnifera"
+  },
+  "cropNameBrahmi": "ಬ್ರಾಹ್ಮಿ",
+  "@cropNameBrahmi": {
+    "description": "The common name for Bacopa monnieri"
+  },
+  "cropNameGiloy": "ಗಿಲೋಯ",
+  "@cropNameGiloy": {
+    "description": "The common name for Tinospora cordifolia"
+  },
+  "cropNameTulsi": "ತುಳಸಿ",
+  "@cropNameTulsi": {
+    "description": "The common name for Ocimum sanctum"
+  },
+  "cropNameArjuna": "ಅರ್ಜುನ",
+  "@cropNameArjuna": {
+    "description": "The common name for Terminalia arjuna"
+  }
 }

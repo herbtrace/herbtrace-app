@@ -1,9 +1,25 @@
+import 'package:flutter/material.dart';
+import 'package:herbtrace_app/generated/app_localizations.dart';
+
 class CropModel {
   final String cropId;
   final String specimenFhirUrl;
   final String imageUrl;
   final String speciesName;
   final List<String> localNames;
+
+  String getLocalizedName(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    return switch (cropId) {
+      'ayurvedic-plant-1' => l10n.cropNameAshwagandha,
+      'ayurvedic-plant-2' => l10n.cropNameBrahmi,
+      'ayurvedic-plant-3' => l10n.cropNameGiloy,
+      'ayurvedic-plant-4' => l10n.cropNameTulsi,
+      'ayurvedic-plant-5' => l10n.cropNameArjuna,
+      _ => speciesName,
+    };
+  }
+
   final String scientificName;
   final String? category;
   final List<int> allowedHarvestMonths;

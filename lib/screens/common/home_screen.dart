@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:herbtrace_app/generated/app_localizations.dart';
 import 'package:herbtrace_app/models/common/profile_type.dart';
 import 'package:herbtrace_app/providers/common/profile_provider.dart';
 import 'package:herbtrace_app/screens/profiles/farmer/dashboard/farmer_dashboard_screen.dart';
 import 'package:herbtrace_app/screens/profiles/farmer/status/status_screen.dart';
 import 'package:herbtrace_app/screens/qr_scanner_screen.dart';
+import 'package:herbtrace_app/utils/user_preferences.dart';
 import 'package:herbtrace_app/widgets/common/app_bar/custom_app_bar.dart';
 import 'package:herbtrace_app/widgets/common/navigation/app_drawer.dart';
 import 'package:herbtrace_app/widgets/common/navigation/bottom_nav_bar.dart';
@@ -24,13 +26,13 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
   }
 
   Widget _buildBody() {
-    final profileType =
-        ref.watch(profileTypeProvider) ??
-        ProfileType.transport; // TODO: Change back to dynamic
+    print(ref.watch(currentProfileProvider)?.type);
+    final ProfileType profileType =
+        ref.watch(currentProfileProvider)?.type ?? ProfileType.transport;
 
     switch (profileType) {
       case ProfileType.farmer:
-        return _buildFarmerBody();
+        return _buildTransportBody();
       case ProfileType.processor:
         // TODO: Implement processor body
         return const Center(child: Text('Processor View'));
@@ -41,6 +43,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
         // TODO: Handle this case.
         throw UnimplementedError();
       case ProfileType.laboratory:
+        return _buildTransportBody();
         // TODO: Handle this case.
         throw UnimplementedError();
       case ProfileType.manufacturer:
@@ -52,8 +55,6 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
       case ProfileType.storage:
         // TODO: Handle this case.
         throw UnimplementedError();
-      // default:
-      //   return const Center(child: Text('Select a Profile Type')); // Fallback
     }
   }
 
@@ -84,32 +85,54 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
   }
 
   List<BottomNavigationBarItem> _buildNavItems() {
-    final profileType =
-        ref.watch(profileTypeProvider) ??
-        ProfileType.transport; // TODO: Change back to dynamic
+    final profile = ref.watch(currentProfileProvider);
+    final localizations = AppLocalizations.of(context)!;
 
-    switch (profileType) {
+    switch (profile?.type) {
       case ProfileType.farmer:
-        return const [
-          BottomNavigationBarItem(icon: Icon(Icons.dashboard), label: 'Status'),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
+        return [
+          BottomNavigationBarItem(
+            icon: const Icon(Icons.dashboard),
+            label: localizations.home,
+          ),
+          BottomNavigationBarItem(
+            icon: const Icon(Icons.qr_code_scanner, size: 30),
+            label: localizations.scan,
+          ),
+          BottomNavigationBarItem(
+            icon: const Icon(Icons.person),
+            label: localizations.profile,
+          ),
         ];
       case ProfileType.transport:
-        return const [
-          BottomNavigationBarItem(icon: Icon(Icons.dashboard), label: 'Status'),
+        return [
           BottomNavigationBarItem(
-            icon: Icon(Icons.qr_code_scanner, size: 30),
-            label: 'Scan',
+            icon: const Icon(Icons.dashboard),
+            label: localizations.home,
           ),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
+          BottomNavigationBarItem(
+            icon: const Icon(Icons.qr_code_scanner, size: 30),
+            label: localizations.scan,
+          ),
+          BottomNavigationBarItem(
+            icon: const Icon(Icons.person),
+            label: localizations.profile,
+          ),
         ];
       default:
-        return const [
+        return [
           BottomNavigationBarItem(
-            icon: Icon(Icons.dashboard),
-            label: 'Dashboard',
+            icon: const Icon(Icons.dashboard),
+            label: localizations.home,
           ),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
+          BottomNavigationBarItem(
+            icon: const Icon(Icons.qr_code_scanner, size: 30),
+            label: localizations.scan,
+          ),
+          BottomNavigationBarItem(
+            icon: const Icon(Icons.person),
+            label: localizations.profile,
+          ),
         ];
     }
   }

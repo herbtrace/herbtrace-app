@@ -1,5 +1,5 @@
 class ApiEndpoints {
-  static const String baseUrl = 'https://7521698e7860.ngrok-free.app';
+  static const String baseUrl = 'https://a1a47d92b1b0.ngrok-free.app';
 
   static const String checkProfileExists = '/profiles/check_if_user_exists';
   static const String userLogin = '/profiles/user_login';

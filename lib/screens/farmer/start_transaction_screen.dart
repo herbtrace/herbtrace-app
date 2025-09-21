@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:herbtrace_app/models/crop_model.dart';
 import 'package:herbtrace_app/providers/profiles/farmer/transaction_provider.dart';
 import 'package:herbtrace_app/widgets/crop_dropdown.dart';
 

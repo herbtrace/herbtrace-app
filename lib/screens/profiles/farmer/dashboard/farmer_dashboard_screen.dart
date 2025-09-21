@@ -4,7 +4,6 @@ import 'package:herbtrace_app/config/theme.dart';
 import 'package:herbtrace_app/models/common/lat_long.dart';
 import 'package:herbtrace_app/models/profiles/farmer/farmer_profile.dart';
 import 'package:herbtrace_app/utils/user_preferences.dart';
-// import 'package:herbtrace_app/providers/common/profile_provider.dart';
 
 class FarmerProfileScreen extends ConsumerStatefulWidget {
   const FarmerProfileScreen({super.key});
