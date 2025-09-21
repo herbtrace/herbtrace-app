@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:herbtrace_app/config/theme.dart';
 import 'package:herbtrace_app/consts/sharedpreferences_consts.dart';
 import 'package:herbtrace_app/generated/app_localizations.dart';
+// import 'package:herbtrace_app/generated/app_localizations.dart';
 import 'package:herbtrace_app/models/common/profile_type.dart';
 import 'package:herbtrace_app/providers/common/profile_provider.dart';
 import 'package:herbtrace_app/screens/common/home_screen.dart';

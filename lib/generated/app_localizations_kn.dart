@@ -70,4 +70,20 @@ class AppLocalizationsKn extends AppLocalizations {
 
   @override
   String get cropNameArjuna => 'ಅರ್ಜುನ';
+
+  @override
+  String get supply_chain_transfer => 'ಸರಬರಾಜು ಸರಪಳಿ ವರ್ಗಾವಣೆ';
+
+  @override
+  String get transfer_instructions => 'ಮುಂದಿನ ಹಂತಕ್ಕೆ ಬ್ಯಾಚ್ ವರ್ಗಾವಣೆ';
+
+  @override
+  String get scan_qr_instructions =>
+      'ಮುಂದಿನ ಹಂತದ ನಿರ್ವಾಹಕರು ಈ QR ಕೋಡ್ ಅನ್ನು ಸ್ಕ್ಯಾನ್ ಮಾಡಿ ಬ್ಯಾಚ್ ವರ್ಗಾವಣೆಯನ್ನು ಪರಿಶೀಲಿಸಿ ಮತ್ತು ಸ್ವೀಕರಿಸಲು ಕೇಳಿ';
+
+  @override
+  String get batch_id_label => 'ಬ್ಯಾಚ್ ID';
+
+  @override
+  String get transfer_confirmation => 'ನಾನು ಈ ವರ್ಗಾವಣೆಯನ್ನು ದೃಢೀಕರಿಸುತ್ತೇನೆ';
 }

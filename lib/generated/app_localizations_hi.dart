@@ -70,4 +70,21 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get cropNameArjuna => 'अर्जुन';
+
+  @override
+  String get supply_chain_transfer => 'आपूर्ति श्रृंखला स्थानांतरण';
+
+  @override
+  String get transfer_instructions => 'अगले चरण में बैच स्थानांतरण';
+
+  @override
+  String get scan_qr_instructions =>
+      'अगले चरण के हैंडलर से इस QR कोड को स्कैन करके बैच स्थानांतरण सत्यापित और स्वीकार करने के लिए कहें';
+
+  @override
+  String get batch_id_label => 'बैच आईडी';
+
+  @override
+  String get transfer_confirmation =>
+      'मैं इस स्थानांतरण की पुष्टि करता/करती हूँ';
 }

@@ -35,5 +35,25 @@
   "cropNameArjuna": "ಅರ್ಜುನ",
   "@cropNameArjuna": {
     "description": "The common name for Terminalia arjuna"
+  },
+  "supply_chain_transfer": "ಸರಬರಾಜು ಸರಪಳಿ ವರ್ಗಾವಣೆ",
+  "@supply_chain_transfer": {
+    "description": "Title for the supply chain transfer screen"
+  },
+  "transfer_instructions": "ಮುಂದಿನ ಹಂತಕ್ಕೆ ಬ್ಯಾಚ್ ವರ್ಗಾವಣೆ",
+  "@transfer_instructions": {
+    "description": "Instructions for transferring batch in supply chain"
+  },
+  "scan_qr_instructions": "ಮುಂದಿನ ಹಂತದ ನಿರ್ವಾಹಕರು ಈ QR ಕೋಡ್ ಅನ್ನು ಸ್ಕ್ಯಾನ್ ಮಾಡಿ ಬ್ಯಾಚ್ ವರ್ಗಾವಣೆಯನ್ನು ಪರಿಶೀಲಿಸಿ ಮತ್ತು ಸ್ವೀಕರಿಸಲು ಕೇಳಿ",
+  "@scan_qr_instructions": {
+    "description": "Instructions for QR code scanning"
+  },
+  "batch_id_label": "ಬ್ಯಾಚ್ ID",
+  "@batch_id_label": {
+    "description": "Label for batch identifier"
+  },
+  "transfer_confirmation": "ನಾನು ಈ ವರ್ಗಾವಣೆಯನ್ನು ದೃಢೀಕರಿಸುತ್ತೇನೆ",
+  "@transfer_confirmation": {
+    "description": "Button text for confirming transfer"
   }
 }

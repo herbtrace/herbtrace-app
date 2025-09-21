@@ -225,6 +225,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Arjuna'**
   String get cropNameArjuna;
+
+  /// Title for the supply chain transfer screen
+  ///
+  /// In en, this message translates to:
+  /// **'Supply Chain Transfer'**
+  String get supply_chain_transfer;
+
+  /// Instructions for transferring batch in supply chain
+  ///
+  /// In en, this message translates to:
+  /// **'Transfer Batch to Next Stage'**
+  String get transfer_instructions;
+
+  /// Instructions for QR code scanning
+  ///
+  /// In en, this message translates to:
+  /// **'Ask the next stage handler to scan this QR code to verify and accept the batch transfer'**
+  String get scan_qr_instructions;
+
+  /// Label for batch identifier
+  ///
+  /// In en, this message translates to:
+  /// **'Batch ID'**
+  String get batch_id_label;
+
+  /// Button text for confirming transfer
+  ///
+  /// In en, this message translates to:
+  /// **'I confirm this transfer'**
+  String get transfer_confirmation;
 }
 
 class _AppLocalizationsDelegate

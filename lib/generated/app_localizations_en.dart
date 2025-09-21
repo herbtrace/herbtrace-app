@@ -70,4 +70,20 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get cropNameArjuna => 'Arjuna';
+
+  @override
+  String get supply_chain_transfer => 'Supply Chain Transfer';
+
+  @override
+  String get transfer_instructions => 'Transfer Batch to Next Stage';
+
+  @override
+  String get scan_qr_instructions =>
+      'Ask the next stage handler to scan this QR code to verify and accept the batch transfer';
+
+  @override
+  String get batch_id_label => 'Batch ID';
+
+  @override
+  String get transfer_confirmation => 'I confirm this transfer';
 }
