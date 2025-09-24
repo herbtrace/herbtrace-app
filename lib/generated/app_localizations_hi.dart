@@ -147,4 +147,76 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get transactionDetails => 'लेन-देन का विवरण';
+
+  @override
+  String get cropInformation => 'फसल की जानकारी';
+
+  @override
+  String get commonName => 'सामान्य नाम';
+
+  @override
+  String get scientificName => 'वैज्ञानिक नाम';
+
+  @override
+  String get category => 'श्रेणी';
+
+  @override
+  String get batchId => 'बैच आईडी';
+
+  @override
+  String get startTime => 'प्रारंभ समय';
+
+  @override
+  String get qualityParameters => 'गुणवत्ता मापदंड';
+
+  @override
+  String get approvedCollectionRegions => 'अनुमोदित संग्रह क्षेत्र';
+
+  @override
+  String get additionalInformation => 'अतिरिक्त जानकारी';
+
+  @override
+  String get allowedHarvestMonths => 'अनुमतित फसल के महीने';
+
+  @override
+  String get restrictedMonths => 'प्रतिबंधित महीने';
+
+  @override
+  String get maxWildCollection => 'अधिकतम जंगली संग्रह';
+
+  @override
+  String get recommendedPractice => 'अनुशंसित अभ्यास';
+
+  @override
+  String get sustainabilityNotes => 'स्थिरता नोट्स';
+
+  @override
+  String get maxMoisturePercent => 'अधिकतम नमी %';
+
+  @override
+  String get rootDiameterMinMm => 'न्यूनतम जड़ व्यास (मिमी)';
+
+  @override
+  String get withanolideContentMinPercent => 'न्यूनतम विथानोलाइड %';
+
+  @override
+  String get pesticideResidueLimit => 'कीटनाशक अवशेष सीमा';
+
+  @override
+  String get heavyMetalsLimit => 'भारी धातु सीमा';
+
+  @override
+  String get dnaAuthentication => 'डीएनए प्रामाणिकता';
+
+  @override
+  String get bacosideContentMinPercent => 'न्यूनतम बैकोसाइड %';
+
+  @override
+  String get berberineContentMinPercent => 'न्यूनतम बर्बेरिन %';
+
+  @override
+  String get essentialOilContentMinPercent => 'न्यूनतम आवश्यक तेल %';
+
+  @override
+  String get tanninsContentMinPercent => 'न्यूनतम टैनिन %';
 }

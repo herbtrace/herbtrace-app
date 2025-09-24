@@ -111,5 +111,101 @@
   "transactionDetails": "Transaction Details",
   "@transactionDetails": {
     "description": "Title for transaction details screen"
+  },
+  "cropInformation": "Crop Information",
+  "@cropInformation": {
+    "description": "Section title for crop information"
+  },
+  "commonName": "Common Name",
+  "@commonName": {
+    "description": "Label for crop common name"
+  },
+  "scientificName": "Scientific Name",
+  "@scientificName": {
+    "description": "Label for scientific name"
+  },
+  "category": "Category",
+  "@category": {
+    "description": "Label for crop category"
+  },
+  "batchId": "Batch ID",
+  "@batchId": {
+    "description": "Label for batch identifier"
+  },
+  "startTime": "Start Time",
+  "@startTime": {
+    "description": "Label for start time"
+  },
+  "qualityParameters": "Quality Parameters",
+  "@qualityParameters": {
+    "description": "Section title for quality parameters"
+  },
+  "approvedCollectionRegions": "Approved Collection Regions",
+  "@approvedCollectionRegions": {
+    "description": "Section title for approved collection regions"
+  },
+  "additionalInformation": "Additional Information",
+  "@additionalInformation": {
+    "description": "Section title for additional information"
+  },
+  "allowedHarvestMonths": "Allowed Harvest Months",
+  "@allowedHarvestMonths": {
+    "description": "Label for allowed harvest months"
+  },
+  "restrictedMonths": "Restricted Months",
+  "@restrictedMonths": {
+    "description": "Label for restricted months"
+  },
+  "maxWildCollection": "Max Wild Collection",
+  "@maxWildCollection": {
+    "description": "Label for maximum wild collection"
+  },
+  "recommendedPractice": "Recommended Practice",
+  "@recommendedPractice": {
+    "description": "Label for recommended practice"
+  },
+  "sustainabilityNotes": "Sustainability Notes",
+  "@sustainabilityNotes": {
+    "description": "Section title for sustainability notes"
+  },
+  "maxMoisturePercent": "Max Moisture %",
+  "@maxMoisturePercent": {
+    "description": "Label for maximum moisture percentage"
+  },
+  "rootDiameterMinMm": "Min Root Diameter (mm)",
+  "@rootDiameterMinMm": {
+    "description": "Label for minimum root diameter in millimeters"
+  },
+  "withanolideContentMinPercent": "Min Withanolide %",
+  "@withanolideContentMinPercent": {
+    "description": "Label for minimum withanolide content percentage"
+  },
+  "pesticideResidueLimit": "Pesticide Residue Limit",
+  "@pesticideResidueLimit": {
+    "description": "Label for pesticide residue limit"
+  },
+  "heavyMetalsLimit": "Heavy Metals Limit",
+  "@heavyMetalsLimit": {
+    "description": "Label for heavy metals limit"
+  },
+  "dnaAuthentication": "DNA Authentication",
+  "@dnaAuthentication": {
+    "description": "Label for DNA authentication"
+  },
+  "bacosideContentMinPercent": "Min Bacoside %",
+  "@bacosideContentMinPercent": {
+    "description": "Label for minimum bacoside content percentage"
+  },
+  "berberineContentMinPercent": "Min Berberine %",
+  "@berberineContentMinPercent": {
+    "description": "Label for minimum berberine content percentage"
+  },
+  "essentialOilContentMinPercent": "Min Essential Oil %",
+  "@essentialOilContentMinPercent": {
+    "description": "Label for minimum essential oil content percentage"
+  },
+  "tanninsContentMinPercent": "Min Tannins %",
+  "@tanninsContentMinPercent": {
+    "description": "Label for minimum tannins content percentage"
   }
 }

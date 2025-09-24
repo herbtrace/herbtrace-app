@@ -108,5 +108,101 @@
   "transactionDetails": "ವಹಿವಾಟು ವಿವರಗಳು",
   "@transactionDetails": {
     "description": "Title for transaction details screen"
+  },
+  "cropInformation": "ಬೆಳೆ ಮಾಹಿತಿ",
+  "@cropInformation": {
+    "description": "Section title for crop information"
+  },
+  "commonName": "ಸಾಮಾನ್ಯ ಹೆಸರು",
+  "@commonName": {
+    "description": "Label for crop common name"
+  },
+  "scientificName": "ವೈಜ್ಞಾನಿಕ ಹೆಸರು",
+  "@scientificName": {
+    "description": "Label for scientific name"
+  },
+  "category": "ವರ್ಗ",
+  "@category": {
+    "description": "Label for crop category"
+  },
+  "batchId": "ಬ್ಯಾಚ್ ಐಡಿ",
+  "@batchId": {
+    "description": "Label for batch identifier"
+  },
+  "startTime": "ಪ್ರಾರಂಭ ಸಮಯ",
+  "@startTime": {
+    "description": "Label for start time"
+  },
+  "qualityParameters": "ಗುಣಮಟ್ಟದ ಮಾನದಂಡಗಳು",
+  "@qualityParameters": {
+    "description": "Section title for quality parameters"
+  },
+  "approvedCollectionRegions": "ಅನುಮೋದಿತ ಸಂಗ್ರಹಣೆ ಪ್ರದೇಶಗಳು",
+  "@approvedCollectionRegions": {
+    "description": "Section title for approved collection regions"
+  },
+  "additionalInformation": "ಹೆಚ್ಚುವರಿ ಮಾಹಿತಿ",
+  "@additionalInformation": {
+    "description": "Section title for additional information"
+  },
+  "allowedHarvestMonths": "ಅನುಮತಿಸಲಾದ ಸುಗ್ಗಿ ತಿಂಗಳುಗಳು",
+  "@allowedHarvestMonths": {
+    "description": "Label for allowed harvest months"
+  },
+  "restrictedMonths": "ನಿರ್ಬಂಧಿತ ತಿಂಗಳುಗಳು",
+  "@restrictedMonths": {
+    "description": "Label for restricted months"
+  },
+  "maxWildCollection": "ಗರಿಷ್ಠ ಕಾಡು ಸಂಗ್ರಹಣೆ",
+  "@maxWildCollection": {
+    "description": "Label for maximum wild collection"
+  },
+  "recommendedPractice": "ಶಿಫಾರಸು ಮಾಡಿದ ಅಭ್ಯಾಸ",
+  "@recommendedPractice": {
+    "description": "Label for recommended practice"
+  },
+  "sustainabilityNotes": "ಸಮರ್ಥನೀಯತೆ ಟಿಪ್ಪಣಿಗಳು",
+  "@sustainabilityNotes": {
+    "description": "Section title for sustainability notes"
+  },
+  "maxMoisturePercent": "ಗರಿಷ್ಠ ತೇವಾಂಶ %",
+  "@maxMoisturePercent": {
+    "description": "Label for maximum moisture percentage"
+  },
+  "rootDiameterMinMm": "ಕನಿಷ್ಠ ಬೇರು ವ್ಯಾಸ (ಮಿಮಿ)",
+  "@rootDiameterMinMm": {
+    "description": "Label for minimum root diameter in millimeters"
+  },
+  "withanolideContentMinPercent": "ಕನಿಷ್ಠ ವಿಥಾನೋಲೈಡ್ %",
+  "@withanolideContentMinPercent": {
+    "description": "Label for minimum withanolide content percentage"
+  },
+  "pesticideResidueLimit": "ಕೀಟನಾಶಕ ಶೇಷ ಮಿತಿ",
+  "@pesticideResidueLimit": {
+    "description": "Label for pesticide residue limit"
+  },
+  "heavyMetalsLimit": "ಭಾರೀ ಲೋಹಗಳ ಮಿತಿ",
+  "@heavyMetalsLimit": {
+    "description": "Label for heavy metals limit"
+  },
+  "dnaAuthentication": "ಡಿಎನ್ಎ ದೃಢೀಕರಣ",
+  "@dnaAuthentication": {
+    "description": "Label for DNA authentication"
+  },
+  "bacosideContentMinPercent": "ಕನಿಷ್ಠ ಬ್ಯಾಕೋಸೈಡ್ %",
+  "@bacosideContentMinPercent": {
+    "description": "Label for minimum bacoside content percentage"
+  },
+  "berberineContentMinPercent": "ಕನಿಷ್ಠ ಬರ್ಬೆರಿನ್ %",
+  "@berberineContentMinPercent": {
+    "description": "Label for minimum berberine content percentage"
+  },
+  "essentialOilContentMinPercent": "ಕನಿಷ್ಠ ಅತ್ಯಂತ ತೈಲ %",
+  "@essentialOilContentMinPercent": {
+    "description": "Label for minimum essential oil content percentage"
+  },
+  "tanninsContentMinPercent": "ಕನಿಷ್ಠ ಟ್ಯಾನಿನ್ಸ್ %",
+  "@tanninsContentMinPercent": {
+    "description": "Label for minimum tannins content percentage"
   }
 }

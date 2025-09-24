@@ -146,4 +146,76 @@ class AppLocalizationsKn extends AppLocalizations {
 
   @override
   String get transactionDetails => 'ವಹಿವಾಟು ವಿವರಗಳು';
+
+  @override
+  String get cropInformation => 'ಬೆಳೆ ಮಾಹಿತಿ';
+
+  @override
+  String get commonName => 'ಸಾಮಾನ್ಯ ಹೆಸರು';
+
+  @override
+  String get scientificName => 'ವೈಜ್ಞಾನಿಕ ಹೆಸರು';
+
+  @override
+  String get category => 'ವರ್ಗ';
+
+  @override
+  String get batchId => 'ಬ್ಯಾಚ್ ಐಡಿ';
+
+  @override
+  String get startTime => 'ಪ್ರಾರಂಭ ಸಮಯ';
+
+  @override
+  String get qualityParameters => 'ಗುಣಮಟ್ಟದ ಮಾನದಂಡಗಳು';
+
+  @override
+  String get approvedCollectionRegions => 'ಅನುಮೋದಿತ ಸಂಗ್ರಹಣೆ ಪ್ರದೇಶಗಳು';
+
+  @override
+  String get additionalInformation => 'ಹೆಚ್ಚುವರಿ ಮಾಹಿತಿ';
+
+  @override
+  String get allowedHarvestMonths => 'ಅನುಮತಿಸಲಾದ ಸುಗ್ಗಿ ತಿಂಗಳುಗಳು';
+
+  @override
+  String get restrictedMonths => 'ನಿರ್ಬಂಧಿತ ತಿಂಗಳುಗಳು';
+
+  @override
+  String get maxWildCollection => 'ಗರಿಷ್ಠ ಕಾಡು ಸಂಗ್ರಹಣೆ';
+
+  @override
+  String get recommendedPractice => 'ಶಿಫಾರಸು ಮಾಡಿದ ಅಭ್ಯಾಸ';
+
+  @override
+  String get sustainabilityNotes => 'ಸಮರ್ಥನೀಯತೆ ಟಿಪ್ಪಣಿಗಳು';
+
+  @override
+  String get maxMoisturePercent => 'ಗರಿಷ್ಠ ತೇವಾಂಶ %';
+
+  @override
+  String get rootDiameterMinMm => 'ಕನಿಷ್ಠ ಬೇರು ವ್ಯಾಸ (ಮಿಮಿ)';
+
+  @override
+  String get withanolideContentMinPercent => 'ಕನಿಷ್ಠ ವಿಥಾನೋಲೈಡ್ %';
+
+  @override
+  String get pesticideResidueLimit => 'ಕೀಟನಾಶಕ ಶೇಷ ಮಿತಿ';
+
+  @override
+  String get heavyMetalsLimit => 'ಭಾರೀ ಲೋಹಗಳ ಮಿತಿ';
+
+  @override
+  String get dnaAuthentication => 'ಡಿಎನ್ಎ ದೃಢೀಕರಣ';
+
+  @override
+  String get bacosideContentMinPercent => 'ಕನಿಷ್ಠ ಬ್ಯಾಕೋಸೈಡ್ %';
+
+  @override
+  String get berberineContentMinPercent => 'ಕನಿಷ್ಠ ಬರ್ಬೆರಿನ್ %';
+
+  @override
+  String get essentialOilContentMinPercent => 'ಕನಿಷ್ಠ ಅತ್ಯಂತ ತೈಲ %';
+
+  @override
+  String get tanninsContentMinPercent => 'ಕನಿಷ್ಠ ಟ್ಯಾನಿನ್ಸ್ %';
 }

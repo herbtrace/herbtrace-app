@@ -15,6 +15,7 @@ import 'package:herbtrace_app/config/theme.dart';
 import 'package:herbtrace_app/models/crop_model.dart';
 import 'package:herbtrace_app/utils/user_preferences.dart';
 import 'package:herbtrace_app/widgets/alert_dialogs/transaction_end_dialog.dart';
+import 'package:herbtrace_app/utils/crop_localization_utils.dart';
 
 final transactionProvider = FutureProvider<List<BatchCropModel>>((ref) async {
   // TODO: Implement transaction fetching logic
@@ -32,10 +33,10 @@ class TransactionDetailsScreen extends ConsumerWidget {
   });
 
   String _formatDateTime(DateTime dateTime) {
-    return '${dateTime.day}/${dateTime.month}/${dateTime.year} ${dateTime.hour}:${dateTime.minute}';
+    return '${dateTime.day.toString().padLeft(2, '0')}/${dateTime.month.toString().padLeft(2, '0')}/${dateTime.year} ${dateTime.hour.toString().padLeft(2, '0')}:${dateTime.minute.toString().padLeft(2, '0')}';
   }
 
-  String _formatMonths(List<int> months) {
+  String _formatMonths(BuildContext context, List<int> months) {
     final monthNames = [
       'Jan',
       'Feb',
@@ -53,6 +54,38 @@ class TransactionDetailsScreen extends ConsumerWidget {
     return months.map((m) => monthNames[m - 1]).join(', ');
   }
 
+  String _getLocalizedParameterName(
+    BuildContext context,
+    String parameterName,
+  ) {
+    final localizations = AppLocalizations.of(context)!;
+
+    switch (parameterName.toLowerCase()) {
+      case 'max_moisture_percent':
+        return localizations.maxMoisturePercent;
+      case 'root_diameter_min_mm':
+        return localizations.rootDiameterMinMm;
+      case 'withanolide_content_min_percent':
+        return localizations.withanolideContentMinPercent;
+      case 'pesticide_residue_limit':
+        return localizations.pesticideResidueLimit;
+      case 'heavy_metals_limit':
+        return localizations.heavyMetalsLimit;
+      case 'dna_authentication':
+        return localizations.dnaAuthentication;
+      case 'bacoside_content_min_percent':
+        return localizations.bacosideContentMinPercent;
+      case 'berberine_content_min_percent':
+        return localizations.berberineContentMinPercent;
+      case 'essential_oil_content_min_percent':
+        return localizations.essentialOilContentMinPercent;
+      case 'tannins_content_min_percent':
+        return localizations.tanninsContentMinPercent;
+      default:
+        return _formatParameterName(parameterName);
+    }
+  }
+
   String _formatParameterName(String parameterName) {
     return parameterName
         .split('_')
@@ -60,9 +93,72 @@ class TransactionDetailsScreen extends ConsumerWidget {
         .join(' ');
   }
 
-  Widget _buildDetailRow(String label, String value) {
+  Widget _buildDetailCard({
+    required BuildContext context,
+    required String title,
+    required List<Widget> children,
+    IconData? icon,
+    Color? iconColor,
+  }) {
+    return Card(
+      elevation: 2,
+      margin: const EdgeInsets.only(bottom: 16),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      child: Padding(
+        padding: const EdgeInsets.all(20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                if (icon != null) ...[
+                  Container(
+                    padding: const EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                      color: (iconColor ?? AppTheme.primaryGreen).withOpacity(
+                        0.1,
+                      ),
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: Icon(
+                      icon,
+                      color: iconColor ?? AppTheme.primaryGreen,
+                      size: 20,
+                    ),
+                  ),
+                  const SizedBox(width: 12),
+                ],
+                Expanded(
+                  child: Text(
+                    title,
+                    style: const TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: AppTheme.primaryGreen,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 16),
+            ...children,
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildDetailRow(
+    String label,
+    String value, {
+    bool isImportant = false,
+  }) {
+    if (value.isEmpty || value.toLowerCase() == 'null') {
+      return const SizedBox.shrink(); // Skip null or empty values
+    }
+
     return Padding(
-      padding: const EdgeInsets.only(bottom: 8),
+      padding: const EdgeInsets.only(bottom: 12),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -70,16 +166,21 @@ class TransactionDetailsScreen extends ConsumerWidget {
             width: 140,
             child: Text(
               label,
-              style: const TextStyle(
+              style: TextStyle(
                 color: AppTheme.textSecondary,
-                fontWeight: FontWeight.w500,
+                fontWeight: FontWeight.w600,
+                fontSize: isImportant ? 15 : 14,
               ),
             ),
           ),
           Expanded(
             child: Text(
               value,
-              style: const TextStyle(fontWeight: FontWeight.w500),
+              style: TextStyle(
+                fontWeight: isImportant ? FontWeight.w700 : FontWeight.w500,
+                fontSize: isImportant ? 15 : 14,
+                color: isImportant ? AppTheme.primaryGreen : Colors.black87,
+              ),
             ),
           ),
         ],
@@ -87,24 +188,33 @@ class TransactionDetailsScreen extends ConsumerWidget {
     );
   }
 
-  Widget _buildSection({
-    required String title,
-    required List<Widget> children,
-  }) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          title,
-          style: const TextStyle(
-            fontSize: 18,
-            fontWeight: FontWeight.bold,
+  Widget _buildRegionTile(dynamic region) {
+    return Container(
+      margin: const EdgeInsets.only(bottom: 8),
+      decoration: BoxDecoration(
+        color: Colors.grey.shade50,
+        borderRadius: BorderRadius.circular(8),
+        border: Border.all(color: Colors.grey.shade200),
+      ),
+      child: ListTile(
+        contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+        leading: CircleAvatar(
+          backgroundColor: AppTheme.primaryGreen.withOpacity(0.1),
+          child: const Icon(
+            Icons.location_on,
             color: AppTheme.primaryGreen,
+            size: 20,
           ),
         ),
-        const SizedBox(height: 12),
-        ...children,
-      ],
+        title: Text(
+          region.regionName,
+          style: const TextStyle(fontWeight: FontWeight.w600),
+        ),
+        subtitle: Text(
+          '${region.stateName} (${region.latitude}, ${region.longitude})',
+          style: TextStyle(color: Colors.grey.shade600, fontSize: 13),
+        ),
+      ),
     );
   }
 
@@ -269,7 +379,7 @@ class TransactionDetailsScreen extends ConsumerWidget {
                             Navigator.of(context).pop();
 
                             // Refresh the list
-                            await ref.refresh(transactionProvider.future);
+                            final _ = ref.refresh(transactionProvider.future);
 
                             // Show success message
                             if (context.mounted) {
@@ -452,102 +562,164 @@ class TransactionDetailsScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final localizations = AppLocalizations.of(context)!;
+    final localizedCropName = CropLocalizationUtils.getLocalizedCropName(
+      context,
+      crop.speciesName,
+    );
+
     return Scaffold(
-      appBar: AppBar(title: const Text('Transaction Details'), elevation: 0),
-      body: Stack(
-        children: [
-          SingleChildScrollView(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+      backgroundColor: Colors.grey.shade50,
+      appBar: AppBar(
+        title: Text(localizations.transactionDetails),
+        elevation: 0,
+        backgroundColor: Colors.white,
+        foregroundColor: Colors.black87,
+      ),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // Crop Information Card
+            _buildDetailCard(
+              context: context,
+              title: localizations.cropInformation,
+              icon: Icons.eco,
+              iconColor: Colors.green,
               children: [
-                _buildSection(
-                  title: 'Crop Information',
-                  children: [
-                    _buildDetailRow('Common Name', crop.speciesName),
-                    _buildDetailRow('Scientific Name', crop.scientificName),
-                    if (crop.category != null)
-                      _buildDetailRow('Category', crop.category!),
-                  ],
+                _buildDetailRow(
+                  localizations.commonName,
+                  localizedCropName,
+                  isImportant: true,
                 ),
-                const SizedBox(height: 24),
-                _buildSection(
-                  title: 'Transaction Details',
-                  children: [
-                    _buildDetailRow('Batch ID', transaction.batchId),
-                    _buildDetailRow(
-                      'Start Time',
-                      _formatDateTime(transaction.startTime),
-                    ),
-                  ],
+                _buildDetailRow(
+                  localizations.scientificName,
+                  crop.scientificName,
                 ),
-                const SizedBox(height: 24),
-                _buildSection(
-                  title: 'Quality Parameters',
-                  children: [
-                    for (var entry in crop.qualityParameters.toJson().entries)
-                      _buildDetailRow(
-                        _formatParameterName(entry.key),
-                        entry.value.toString(),
-                      ),
-                  ],
-                ),
-                const SizedBox(height: 24),
-                _buildSection(
-                  title: 'Approved Collection Regions',
-                  children: [
-                    for (var region in crop.approvedCollectionRegions)
-                      ListTile(
-                        contentPadding: EdgeInsets.zero,
-                        title: Text(region.regionName),
-                        subtitle: Text(
-                          '${region.stateName} (${region.latitude}, ${region.longitude})',
-                        ),
-                      ),
-                  ],
-                ),
-                const SizedBox(height: 24),
-                _buildSection(
-                  title: 'Additional Information',
-                  children: [
-                    _buildDetailRow(
-                      'Allowed Harvest Months',
-                      _formatMonths(crop.allowedHarvestMonths),
-                    ),
-                    if (crop.restrictedMonths.isNotEmpty)
-                      _buildDetailRow(
-                        'Restricted Months',
-                        _formatMonths(crop.restrictedMonths),
-                      ),
-                    _buildDetailRow(
-                      'Max Wild Collection',
-                      crop.maxAllowedWildCollection.toString(),
-                    ),
-                    if (crop.recommendedPractice != null)
-                      _buildDetailRow(
-                        'Recommended Practice',
-                        crop.recommendedPractice!,
-                      ),
-                  ],
-                ),
-                if (crop.sustainabilityNotes.isNotEmpty) ...[
-                  const SizedBox(height: 24),
-                  _buildSection(
-                    title: 'Sustainability Notes',
-                    children: [Text(crop.sustainabilityNotes)],
-                  ),
-                ],
-                const SizedBox(height: 32),
+                if (crop.category != null && crop.category!.isNotEmpty)
+                  _buildDetailRow(localizations.category, crop.category!),
               ],
             ),
-          ),
-        ],
+
+            // Transaction Details Card
+            _buildDetailCard(
+              context: context,
+              title: localizations.transactionDetails,
+              icon: Icons.receipt_long,
+              iconColor: Colors.blue,
+              children: [
+                _buildDetailRow(
+                  localizations.batchId,
+                  transaction.batchId,
+                  isImportant: true,
+                ),
+                _buildDetailRow(
+                  localizations.startTime,
+                  _formatDateTime(transaction.startTime),
+                ),
+              ],
+            ),
+
+            // Quality Parameters Card
+            if (crop.qualityParameters.toJson().isNotEmpty)
+              _buildDetailCard(
+                context: context,
+                title: localizations.qualityParameters,
+                icon: Icons.verified,
+                iconColor: Colors.orange,
+                children: [
+                  for (var entry in crop.qualityParameters.toJson().entries)
+                    if (entry.value != null &&
+                        entry.value.toString().isNotEmpty &&
+                        entry.value.toString().toLowerCase() != 'null')
+                      _buildDetailRow(
+                        _getLocalizedParameterName(context, entry.key),
+                        entry.value.toString(),
+                      ),
+                ],
+              ),
+
+            // Approved Collection Regions Card
+            if (crop.approvedCollectionRegions.isNotEmpty)
+              _buildDetailCard(
+                context: context,
+                title: localizations.approvedCollectionRegions,
+                icon: Icons.location_on,
+                iconColor: Colors.red,
+                children: [
+                  for (var region in crop.approvedCollectionRegions)
+                    _buildRegionTile(region),
+                ],
+              ),
+
+            // Additional Information Card
+            _buildDetailCard(
+              context: context,
+              title: localizations.additionalInformation,
+              icon: Icons.info,
+              iconColor: Colors.purple,
+              children: [
+                if (crop.allowedHarvestMonths.isNotEmpty)
+                  _buildDetailRow(
+                    localizations.allowedHarvestMonths,
+                    _formatMonths(context, crop.allowedHarvestMonths),
+                  ),
+                if (crop.restrictedMonths.isNotEmpty)
+                  _buildDetailRow(
+                    localizations.restrictedMonths,
+                    _formatMonths(context, crop.restrictedMonths),
+                  ),
+                if (crop.maxAllowedWildCollection.isNotEmpty)
+                  _buildDetailRow(
+                    localizations.maxWildCollection,
+                    crop.maxAllowedWildCollection.toString(),
+                  ),
+                if (crop.recommendedPractice != null &&
+                    crop.recommendedPractice!.isNotEmpty)
+                  _buildDetailRow(
+                    localizations.recommendedPractice,
+                    crop.recommendedPractice!,
+                  ),
+              ],
+            ),
+
+            // Sustainability Notes Card
+            if (crop.sustainabilityNotes.isNotEmpty)
+              _buildDetailCard(
+                context: context,
+                title: localizations.sustainabilityNotes,
+                icon: Icons.nature,
+                iconColor: Colors.teal,
+                children: [
+                  Container(
+                    width: double.infinity,
+                    padding: const EdgeInsets.all(16),
+                    decoration: BoxDecoration(
+                      color: Colors.green.shade50,
+                      borderRadius: BorderRadius.circular(8),
+                      border: Border.all(color: Colors.green.shade200),
+                    ),
+                    child: Text(
+                      crop.sustainabilityNotes,
+                      style: const TextStyle(
+                        fontStyle: FontStyle.italic,
+                        height: 1.5,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+
+            const SizedBox(height: 80), // Space for floating action button
+          ],
+        ),
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () => _handleEndTransaction(context, ref),
         backgroundColor: Colors.red,
         icon: const Icon(Icons.stop_circle_outlined),
-        label: Text(AppLocalizations.of(context)!.endTransaction),
+        label: Text(localizations.endTransaction),
       ),
     );
   }

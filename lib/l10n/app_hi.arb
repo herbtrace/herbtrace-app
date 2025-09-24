@@ -108,5 +108,101 @@
   "transactionDetails": "लेन-देन का विवरण",
   "@transactionDetails": {
     "description": "Title for transaction details screen"
+  },
+  "cropInformation": "फसल की जानकारी",
+  "@cropInformation": {
+    "description": "Section title for crop information"
+  },
+  "commonName": "सामान्य नाम",
+  "@commonName": {
+    "description": "Label for crop common name"
+  },
+  "scientificName": "वैज्ञानिक नाम",
+  "@scientificName": {
+    "description": "Label for scientific name"
+  },
+  "category": "श्रेणी",
+  "@category": {
+    "description": "Label for crop category"
+  },
+  "batchId": "बैच आईडी",
+  "@batchId": {
+    "description": "Label for batch identifier"
+  },
+  "startTime": "प्रारंभ समय",
+  "@startTime": {
+    "description": "Label for start time"
+  },
+  "qualityParameters": "गुणवत्ता मापदंड",
+  "@qualityParameters": {
+    "description": "Section title for quality parameters"
+  },
+  "approvedCollectionRegions": "अनुमोदित संग्रह क्षेत्र",
+  "@approvedCollectionRegions": {
+    "description": "Section title for approved collection regions"
+  },
+  "additionalInformation": "अतिरिक्त जानकारी",
+  "@additionalInformation": {
+    "description": "Section title for additional information"
+  },
+  "allowedHarvestMonths": "अनुमतित फसल के महीने",
+  "@allowedHarvestMonths": {
+    "description": "Label for allowed harvest months"
+  },
+  "restrictedMonths": "प्रतिबंधित महीने",
+  "@restrictedMonths": {
+    "description": "Label for restricted months"
+  },
+  "maxWildCollection": "अधिकतम जंगली संग्रह",
+  "@maxWildCollection": {
+    "description": "Label for maximum wild collection"
+  },
+  "recommendedPractice": "अनुशंसित अभ्यास",
+  "@recommendedPractice": {
+    "description": "Label for recommended practice"
+  },
+  "sustainabilityNotes": "स्थिरता नोट्स",
+  "@sustainabilityNotes": {
+    "description": "Section title for sustainability notes"
+  },
+  "maxMoisturePercent": "अधिकतम नमी %",
+  "@maxMoisturePercent": {
+    "description": "Label for maximum moisture percentage"
+  },
+  "rootDiameterMinMm": "न्यूनतम जड़ व्यास (मिमी)",
+  "@rootDiameterMinMm": {
+    "description": "Label for minimum root diameter in millimeters"
+  },
+  "withanolideContentMinPercent": "न्यूनतम विथानोलाइड %",
+  "@withanolideContentMinPercent": {
+    "description": "Label for minimum withanolide content percentage"
+  },
+  "pesticideResidueLimit": "कीटनाशक अवशेष सीमा",
+  "@pesticideResidueLimit": {
+    "description": "Label for pesticide residue limit"
+  },
+  "heavyMetalsLimit": "भारी धातु सीमा",
+  "@heavyMetalsLimit": {
+    "description": "Label for heavy metals limit"
+  },
+  "dnaAuthentication": "डीएनए प्रामाणिकता",
+  "@dnaAuthentication": {
+    "description": "Label for DNA authentication"
+  },
+  "bacosideContentMinPercent": "न्यूनतम बैकोसाइड %",
+  "@bacosideContentMinPercent": {
+    "description": "Label for minimum bacoside content percentage"
+  },
+  "berberineContentMinPercent": "न्यूनतम बर्बेरिन %",
+  "@berberineContentMinPercent": {
+    "description": "Label for minimum berberine content percentage"
+  },
+  "essentialOilContentMinPercent": "न्यूनतम आवश्यक तेल %",
+  "@essentialOilContentMinPercent": {
+    "description": "Label for minimum essential oil content percentage"
+  },
+  "tanninsContentMinPercent": "न्यूनतम टैनिन %",
+  "@tanninsContentMinPercent": {
+    "description": "Label for minimum tannins content percentage"
   }
 }

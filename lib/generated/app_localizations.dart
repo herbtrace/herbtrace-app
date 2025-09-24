@@ -315,6 +315,150 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Transaction Details'**
   String get transactionDetails;
+
+  /// Section title for crop information
+  ///
+  /// In en, this message translates to:
+  /// **'Crop Information'**
+  String get cropInformation;
+
+  /// Label for crop common name
+  ///
+  /// In en, this message translates to:
+  /// **'Common Name'**
+  String get commonName;
+
+  /// Label for scientific name
+  ///
+  /// In en, this message translates to:
+  /// **'Scientific Name'**
+  String get scientificName;
+
+  /// Label for crop category
+  ///
+  /// In en, this message translates to:
+  /// **'Category'**
+  String get category;
+
+  /// Label for batch identifier
+  ///
+  /// In en, this message translates to:
+  /// **'Batch ID'**
+  String get batchId;
+
+  /// Label for start time
+  ///
+  /// In en, this message translates to:
+  /// **'Start Time'**
+  String get startTime;
+
+  /// Section title for quality parameters
+  ///
+  /// In en, this message translates to:
+  /// **'Quality Parameters'**
+  String get qualityParameters;
+
+  /// Section title for approved collection regions
+  ///
+  /// In en, this message translates to:
+  /// **'Approved Collection Regions'**
+  String get approvedCollectionRegions;
+
+  /// Section title for additional information
+  ///
+  /// In en, this message translates to:
+  /// **'Additional Information'**
+  String get additionalInformation;
+
+  /// Label for allowed harvest months
+  ///
+  /// In en, this message translates to:
+  /// **'Allowed Harvest Months'**
+  String get allowedHarvestMonths;
+
+  /// Label for restricted months
+  ///
+  /// In en, this message translates to:
+  /// **'Restricted Months'**
+  String get restrictedMonths;
+
+  /// Label for maximum wild collection
+  ///
+  /// In en, this message translates to:
+  /// **'Max Wild Collection'**
+  String get maxWildCollection;
+
+  /// Label for recommended practice
+  ///
+  /// In en, this message translates to:
+  /// **'Recommended Practice'**
+  String get recommendedPractice;
+
+  /// Section title for sustainability notes
+  ///
+  /// In en, this message translates to:
+  /// **'Sustainability Notes'**
+  String get sustainabilityNotes;
+
+  /// Label for maximum moisture percentage
+  ///
+  /// In en, this message translates to:
+  /// **'Max Moisture %'**
+  String get maxMoisturePercent;
+
+  /// Label for minimum root diameter in millimeters
+  ///
+  /// In en, this message translates to:
+  /// **'Min Root Diameter (mm)'**
+  String get rootDiameterMinMm;
+
+  /// Label for minimum withanolide content percentage
+  ///
+  /// In en, this message translates to:
+  /// **'Min Withanolide %'**
+  String get withanolideContentMinPercent;
+
+  /// Label for pesticide residue limit
+  ///
+  /// In en, this message translates to:
+  /// **'Pesticide Residue Limit'**
+  String get pesticideResidueLimit;
+
+  /// Label for heavy metals limit
+  ///
+  /// In en, this message translates to:
+  /// **'Heavy Metals Limit'**
+  String get heavyMetalsLimit;
+
+  /// Label for DNA authentication
+  ///
+  /// In en, this message translates to:
+  /// **'DNA Authentication'**
+  String get dnaAuthentication;
+
+  /// Label for minimum bacoside content percentage
+  ///
+  /// In en, this message translates to:
+  /// **'Min Bacoside %'**
+  String get bacosideContentMinPercent;
+
+  /// Label for minimum berberine content percentage
+  ///
+  /// In en, this message translates to:
+  /// **'Min Berberine %'**
+  String get berberineContentMinPercent;
+
+  /// Label for minimum essential oil content percentage
+  ///
+  /// In en, this message translates to:
+  /// **'Min Essential Oil %'**
+  String get essentialOilContentMinPercent;
+
+  /// Label for minimum tannins content percentage
+  ///
+  /// In en, this message translates to:
+  /// **'Min Tannins %'**
+  String get tanninsContentMinPercent;
 }
 
 class _AppLocalizationsDelegate

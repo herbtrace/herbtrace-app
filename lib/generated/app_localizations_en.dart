@@ -146,4 +146,76 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get transactionDetails => 'Transaction Details';
+
+  @override
+  String get cropInformation => 'Crop Information';
+
+  @override
+  String get commonName => 'Common Name';
+
+  @override
+  String get scientificName => 'Scientific Name';
+
+  @override
+  String get category => 'Category';
+
+  @override
+  String get batchId => 'Batch ID';
+
+  @override
+  String get startTime => 'Start Time';
+
+  @override
+  String get qualityParameters => 'Quality Parameters';
+
+  @override
+  String get approvedCollectionRegions => 'Approved Collection Regions';
+
+  @override
+  String get additionalInformation => 'Additional Information';
+
+  @override
+  String get allowedHarvestMonths => 'Allowed Harvest Months';
+
+  @override
+  String get restrictedMonths => 'Restricted Months';
+
+  @override
+  String get maxWildCollection => 'Max Wild Collection';
+
+  @override
+  String get recommendedPractice => 'Recommended Practice';
+
+  @override
+  String get sustainabilityNotes => 'Sustainability Notes';
+
+  @override
+  String get maxMoisturePercent => 'Max Moisture %';
+
+  @override
+  String get rootDiameterMinMm => 'Min Root Diameter (mm)';
+
+  @override
+  String get withanolideContentMinPercent => 'Min Withanolide %';
+
+  @override
+  String get pesticideResidueLimit => 'Pesticide Residue Limit';
+
+  @override
+  String get heavyMetalsLimit => 'Heavy Metals Limit';
+
+  @override
+  String get dnaAuthentication => 'DNA Authentication';
+
+  @override
+  String get bacosideContentMinPercent => 'Min Bacoside %';
+
+  @override
+  String get berberineContentMinPercent => 'Min Berberine %';
+
+  @override
+  String get essentialOilContentMinPercent => 'Min Essential Oil %';
+
+  @override
+  String get tanninsContentMinPercent => 'Min Tannins %';
 }
