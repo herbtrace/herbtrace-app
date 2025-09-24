@@ -218,4 +218,102 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get tanninsContentMinPercent => 'Min Tannins %';
+
+  @override
+  String get onboarding_welcome_subtitle =>
+      'Secure and transparent tracking of medicinal plants from farm to pharmacy';
+
+  @override
+  String get get_started => 'Get Started';
+
+  @override
+  String get track => 'Track';
+
+  @override
+  String get verify => 'Verify';
+
+  @override
+  String get sustain => 'Sustain';
+
+  @override
+  String get choose_your_language => 'Choose Your Language';
+
+  @override
+  String get language_selection_subtitle =>
+      'Select your preferred language to continue';
+
+  @override
+  String get supply_chain_journey => 'Supply Chain Journey';
+
+  @override
+  String get supply_chain_subtitle =>
+      'See how your medicinal plants move through the supply chain';
+
+  @override
+  String get farmer_wild_collector => 'Farmer/Wild Collector';
+
+  @override
+  String get transporter => 'Transporter';
+
+  @override
+  String get processor => 'Processor';
+
+  @override
+  String get laboratory => 'Laboratory';
+
+  @override
+  String get manufacturer => 'Manufacturer';
+
+  @override
+  String get packer => 'Packer';
+
+  @override
+  String get farmer_guidance_title => 'Farmer Guidance';
+
+  @override
+  String get farmer_guidance_subtitle =>
+      'Learn how to add crops and manage your harvest';
+
+  @override
+  String get add_crop_step => 'Add Crop';
+
+  @override
+  String get monitor_growth => 'Monitor Growth';
+
+  @override
+  String get harvest_time => 'Harvest Time';
+
+  @override
+  String get qr_process_title => 'QR Code Process';
+
+  @override
+  String get qr_process_subtitle => 'Learn how the handover process works';
+
+  @override
+  String get generate_qr => 'Generate QR';
+
+  @override
+  String get scan_verify => 'Scan & Verify';
+
+  @override
+  String get transfer_complete => 'Transfer Complete';
+
+  @override
+  String get ready_to_start => 'Ready to Start Your Journey?';
+
+  @override
+  String get get_started_subtitle =>
+      'Begin tracking your herbal products through the complete supply chain with transparency and trust.';
+
+  @override
+  String get quick_transactions => 'Quick Transactions';
+
+  @override
+  String get full_traceability => 'Full Traceability';
+
+  @override
+  String get secure_blockchain => 'Secure Blockchain';
+
+  @override
+  String get get_started_button => 'Get Started';
 }

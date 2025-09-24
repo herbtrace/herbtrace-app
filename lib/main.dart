@@ -6,6 +6,9 @@ import 'package:herbtrace_app/generated/app_localizations.dart';
 import 'package:herbtrace_app/models/common/profile_type.dart';
 import 'package:herbtrace_app/providers/common/profile_provider.dart';
 import 'package:herbtrace_app/screens/common/home_screen.dart';
+import 'package:herbtrace_app/screens/first_screen.dart';
+import 'package:herbtrace_app/screens/onboarding/onboarding_screen.dart';
+import 'package:herbtrace_app/screens/onboarding/pages/welcome_page.dart';
 import 'package:herbtrace_app/screens/welcome_screen.dart';
 import 'package:herbtrace_app/services/language_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -42,6 +45,8 @@ class HerbTraceApp extends ConsumerWidget {
       supportedLocales: AppLocalizations.supportedLocales,
       locale: locale,
       theme: AppTheme.lightTheme,
+
+      // home: const WelcomePage(),
       home: prefs.getString(SharedPrefKeys.role) == null
           ? const WelcomeScreen()
           : HomeScreen(),

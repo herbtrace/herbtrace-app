@@ -459,6 +459,192 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Min Tannins %'**
   String get tanninsContentMinPercent;
+
+  /// Subtitle text for welcome onboarding page
+  ///
+  /// In en, this message translates to:
+  /// **'Secure and transparent tracking of medicinal plants from farm to pharmacy'**
+  String get onboarding_welcome_subtitle;
+
+  /// Button text to begin onboarding
+  ///
+  /// In en, this message translates to:
+  /// **'Get Started'**
+  String get get_started;
+
+  /// Feature label for tracking
+  ///
+  /// In en, this message translates to:
+  /// **'Track'**
+  String get track;
+
+  /// Feature label for verification
+  ///
+  /// In en, this message translates to:
+  /// **'Verify'**
+  String get verify;
+
+  /// Feature label for sustainability
+  ///
+  /// In en, this message translates to:
+  /// **'Sustain'**
+  String get sustain;
+
+  /// Title for language selection screen
+  ///
+  /// In en, this message translates to:
+  /// **'Choose Your Language'**
+  String get choose_your_language;
+
+  /// Subtitle for language selection screen
+  ///
+  /// In en, this message translates to:
+  /// **'Select your preferred language to continue'**
+  String get language_selection_subtitle;
+
+  /// Title for supply chain overview page
+  ///
+  /// In en, this message translates to:
+  /// **'Supply Chain Journey'**
+  String get supply_chain_journey;
+
+  /// Subtitle for supply chain overview page
+  ///
+  /// In en, this message translates to:
+  /// **'See how your medicinal plants move through the supply chain'**
+  String get supply_chain_subtitle;
+
+  /// Label for farmer/wild collector role
+  ///
+  /// In en, this message translates to:
+  /// **'Farmer/Wild Collector'**
+  String get farmer_wild_collector;
+
+  /// Label for transporter role
+  ///
+  /// In en, this message translates to:
+  /// **'Transporter'**
+  String get transporter;
+
+  /// Label for processor role
+  ///
+  /// In en, this message translates to:
+  /// **'Processor'**
+  String get processor;
+
+  /// Label for laboratory role
+  ///
+  /// In en, this message translates to:
+  /// **'Laboratory'**
+  String get laboratory;
+
+  /// Label for manufacturer role
+  ///
+  /// In en, this message translates to:
+  /// **'Manufacturer'**
+  String get manufacturer;
+
+  /// Label for packer role
+  ///
+  /// In en, this message translates to:
+  /// **'Packer'**
+  String get packer;
+
+  /// Title for farmer guidance page
+  ///
+  /// In en, this message translates to:
+  /// **'Farmer Guidance'**
+  String get farmer_guidance_title;
+
+  /// Subtitle for farmer guidance page
+  ///
+  /// In en, this message translates to:
+  /// **'Learn how to add crops and manage your harvest'**
+  String get farmer_guidance_subtitle;
+
+  /// Step label for adding crop
+  ///
+  /// In en, this message translates to:
+  /// **'Add Crop'**
+  String get add_crop_step;
+
+  /// Step label for monitoring growth
+  ///
+  /// In en, this message translates to:
+  /// **'Monitor Growth'**
+  String get monitor_growth;
+
+  /// Step label for harvest time
+  ///
+  /// In en, this message translates to:
+  /// **'Harvest Time'**
+  String get harvest_time;
+
+  /// Title for QR process page
+  ///
+  /// In en, this message translates to:
+  /// **'QR Code Process'**
+  String get qr_process_title;
+
+  /// Subtitle for QR process page
+  ///
+  /// In en, this message translates to:
+  /// **'Learn how the handover process works'**
+  String get qr_process_subtitle;
+
+  /// Step label for generating QR code
+  ///
+  /// In en, this message translates to:
+  /// **'Generate QR'**
+  String get generate_qr;
+
+  /// Step label for scanning and verifying
+  ///
+  /// In en, this message translates to:
+  /// **'Scan & Verify'**
+  String get scan_verify;
+
+  /// Step label for completed transfer
+  ///
+  /// In en, this message translates to:
+  /// **'Transfer Complete'**
+  String get transfer_complete;
+
+  /// Title for get started page
+  ///
+  /// In en, this message translates to:
+  /// **'Ready to Start Your Journey?'**
+  String get ready_to_start;
+
+  /// Subtitle for get started page
+  ///
+  /// In en, this message translates to:
+  /// **'Begin tracking your herbal products through the complete supply chain with transparency and trust.'**
+  String get get_started_subtitle;
+
+  /// Feature highlight for quick transactions
+  ///
+  /// In en, this message translates to:
+  /// **'Quick Transactions'**
+  String get quick_transactions;
+
+  /// Feature highlight for full traceability
+  ///
+  /// In en, this message translates to:
+  /// **'Full Traceability'**
+  String get full_traceability;
+
+  /// Feature highlight for secure blockchain
+  ///
+  /// In en, this message translates to:
+  /// **'Secure Blockchain'**
+  String get secure_blockchain;
+
+  /// Button text for get started
+  ///
+  /// In en, this message translates to:
+  /// **'Get Started'**
+  String get get_started_button;
 }
 
 class _AppLocalizationsDelegate

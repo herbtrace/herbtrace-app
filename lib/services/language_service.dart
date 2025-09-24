@@ -21,9 +21,9 @@ class LanguageService extends StateNotifier<Locale> {
   }
 
   static final List<Map<String, String>> languages = [
-    {'code': 'en', 'name': 'English'},
-    {'code': 'hi', 'name': 'हिंदी'},
-    {'code': 'kn', 'name': 'ಕನ್ನಡ'},
+    {'code': 'en', 'name': 'English', 'nameInEnglish': "English"},
+    {'code': 'hi', 'name': 'हिंदी', 'nameInEnglish': "Hindi"},
+    {'code': 'kn', 'name': 'ಕನ್ನಡ', 'nameInEnglish': "Kannada"},
   ];
 }
 

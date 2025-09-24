@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:herbtrace_app/config/constants/api_endpoints.dart';
 import 'package:herbtrace_app/utils/user_preferences.dart';

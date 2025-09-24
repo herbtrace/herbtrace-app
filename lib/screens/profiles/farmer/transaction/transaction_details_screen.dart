@@ -154,7 +154,7 @@ class TransactionDetailsScreen extends ConsumerWidget {
     bool isImportant = false,
   }) {
     if (value.isEmpty || value.toLowerCase() == 'null') {
-      return const SizedBox.shrink(); // Skip null or empty values
+      return const SizedBox.shrink();
     }
 
     return Padding(
@@ -372,16 +372,12 @@ class TransactionDetailsScreen extends ConsumerWidget {
                         width: double.infinity,
                         child: ElevatedButton.icon(
                           onPressed: () async {
-                            // Close the QR dialog
                             Navigator.of(context).pop();
 
-                            // Go back to home page
                             Navigator.of(context).pop();
 
-                            // Refresh the list
                             final _ = ref.refresh(transactionProvider.future);
 
-                            // Show success message
                             if (context.mounted) {
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(
@@ -513,7 +509,7 @@ class TransactionDetailsScreen extends ConsumerWidget {
           startTime: transaction.startTime,
           endTime: currentTime,
           cropName: crop.speciesName,
-          quantity: 0.0, // TODO: Add quantity field in your transaction model
+          quantity: 10.0, // TODO: Add quantity field in your transaction model
           onConfirm: () async {
             try {
               final profileId = await UserPreferences.getProfileId();
@@ -581,7 +577,6 @@ class TransactionDetailsScreen extends ConsumerWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Crop Information Card
             _buildDetailCard(
               context: context,
               title: localizations.cropInformation,
@@ -602,7 +597,6 @@ class TransactionDetailsScreen extends ConsumerWidget {
               ],
             ),
 
-            // Transaction Details Card
             _buildDetailCard(
               context: context,
               title: localizations.transactionDetails,
@@ -621,7 +615,6 @@ class TransactionDetailsScreen extends ConsumerWidget {
               ],
             ),
 
-            // Quality Parameters Card
             if (crop.qualityParameters.toJson().isNotEmpty)
               _buildDetailCard(
                 context: context,
@@ -640,7 +633,6 @@ class TransactionDetailsScreen extends ConsumerWidget {
                 ],
               ),
 
-            // Approved Collection Regions Card
             if (crop.approvedCollectionRegions.isNotEmpty)
               _buildDetailCard(
                 context: context,
@@ -653,7 +645,6 @@ class TransactionDetailsScreen extends ConsumerWidget {
                 ],
               ),
 
-            // Additional Information Card
             _buildDetailCard(
               context: context,
               title: localizations.additionalInformation,
@@ -684,7 +675,6 @@ class TransactionDetailsScreen extends ConsumerWidget {
               ],
             ),
 
-            // Sustainability Notes Card
             if (crop.sustainabilityNotes.isNotEmpty)
               _buildDetailCard(
                 context: context,
@@ -711,7 +701,7 @@ class TransactionDetailsScreen extends ConsumerWidget {
                 ],
               ),
 
-            const SizedBox(height: 80), // Space for floating action button
+            const SizedBox(height: 80),
           ],
         ),
       ),

@@ -204,5 +204,129 @@
   "tanninsContentMinPercent": "न्यूनतम टैनिन %",
   "@tanninsContentMinPercent": {
     "description": "Label for minimum tannins content percentage"
+  },
+  "onboarding_welcome_subtitle": "खेत से फार्मेसी तक औषधीय पौधों की सुरक्षित और पारदर्शी ट्रैकिंग",
+  "@onboarding_welcome_subtitle": {
+    "description": "Subtitle text for welcome onboarding page"
+  },
+  "get_started": "शुरू करें",
+  "@get_started": {
+    "description": "Button text to begin onboarding"
+  },
+  "track": "ट्रैक",
+  "@track": {
+    "description": "Feature label for tracking"
+  },
+  "verify": "सत्यापित",
+  "@verify": {
+    "description": "Feature label for verification"
+  },
+  "sustain": "स्थिरता",
+  "@sustain": {
+    "description": "Feature label for sustainability"
+  },
+  "choose_your_language": "अपनी भाषा चुनें",
+  "@choose_your_language": {
+    "description": "Title for language selection screen"
+  },
+  "language_selection_subtitle": "जारी रखने के लिए अपनी पसंदीदा भाषा चुनें",
+  "@language_selection_subtitle": {
+    "description": "Subtitle for language selection screen"
+  },
+  "supply_chain_journey": "आपूर्ति श्रृंखला यात्रा",
+  "@supply_chain_journey": {
+    "description": "Title for supply chain overview page"
+  },
+  "supply_chain_subtitle": "देखें कि आपके औषधीय पौधे आपूर्ति श्रृंखला में कैसे आगे बढ़ते हैं",
+  "@supply_chain_subtitle": {
+    "description": "Subtitle for supply chain overview page"
+  },
+  "farmer_wild_collector": "किसान/जंगली संग्रहकर्ता",
+  "@farmer_wild_collector": {
+    "description": "Label for farmer/wild collector role"
+  },
+  "transporter": "परिवहनकर्ता",
+  "@transporter": {
+    "description": "Label for transporter role"
+  },
+  "processor": "प्रोसेसर",
+  "@processor": {
+    "description": "Label for processor role"
+  },
+  "laboratory": "प्रयोगशाला",
+  "@laboratory": {
+    "description": "Label for laboratory role"
+  },
+  "manufacturer": "निर्माता",
+  "@manufacturer": {
+    "description": "Label for manufacturer role"
+  },
+  "packer": "पैकर",
+  "@packer": {
+    "description": "Label for packer role"
+  },
+  "farmer_guidance_title": "किसान मार्गदर्शन",
+  "@farmer_guidance_title": {
+    "description": "Title for farmer guidance page"
+  },
+  "farmer_guidance_subtitle": "फसल जोड़ना और अपनी फसल का प्रबंधन करना सीखें",
+  "@farmer_guidance_subtitle": {
+    "description": "Subtitle for farmer guidance page"
+  },
+  "add_crop_step": "फसल जोड़ें",
+  "@add_crop_step": {
+    "description": "Step label for adding crop"
+  },
+  "monitor_growth": "वृद्धि निगरानी",
+  "@monitor_growth": {
+    "description": "Step label for monitoring growth"
+  },
+  "harvest_time": "फसल का समय",
+  "@harvest_time": {
+    "description": "Step label for harvest time"
+  },
+  "qr_process_title": "QR कोड प्रक्रिया",
+  "@qr_process_title": {
+    "description": "Title for QR process page"
+  },
+  "qr_process_subtitle": "जानें कि हैंडओवर प्रक्रिया कैसे काम करती है",
+  "@qr_process_subtitle": {
+    "description": "Subtitle for QR process page"
+  },
+  "generate_qr": "QR जेनरेट करें",
+  "@generate_qr": {
+    "description": "Step label for generating QR code"
+  },
+  "scan_verify": "स्कैन और सत्यापित",
+  "@scan_verify": {
+    "description": "Step label for scanning and verifying"
+  },
+  "transfer_complete": "स्थानांतरण पूर्ण",
+  "@transfer_complete": {
+    "description": "Step label for transfer completion"
+  },
+  "ready_to_start": "अपनी यात्रा शुरू करने के लिए तैयार हैं?",
+  "@ready_to_start": {
+    "description": "Title for get started page"
+  },
+  "get_started_subtitle": "पारदर्शिता और विश्वास के साथ पूरी आपूर्ति श्रृंखला के माध्यम से अपने हर्बल उत्पादों को ट्रैक करना शुरू करें।",
+  "@get_started_subtitle": {
+    "description": "Subtitle for get started page"
+  },
+  "quick_transactions": "त्वरित लेन-देन",
+  "@quick_transactions": {
+    "description": "Feature highlight for quick transactions"
+  },
+  "full_traceability": "पूर्ण अनुरेखणीयता",
+  "@full_traceability": {
+    "description": "Feature highlight for full traceability"
+  },
+  "secure_blockchain": "सुरक्षित ब्लॉकचेन",
+  "@secure_blockchain": {
+    "description": "Feature highlight for secure blockchain"
+  },
+  "get_started_button": "शुरू करें",
+  "@get_started_button": {
+    "description": "Button text for get started"
   }
 }

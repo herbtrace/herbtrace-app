@@ -19,6 +19,7 @@ abstract class BaseProfile {
   static BaseProfile fromJson(Map<String, dynamic> data, ProfileType role) {
     final location = LatLong.fromJson(data['location'] as Map<String, dynamic>);
 
+    // ignore: unused_local_variable
     final baseData = {
       'id': data['id'] as String,
       'name': data['name'] as String,

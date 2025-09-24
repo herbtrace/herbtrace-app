@@ -218,4 +218,103 @@ class AppLocalizationsKn extends AppLocalizations {
 
   @override
   String get tanninsContentMinPercent => 'ಕನಿಷ್ಠ ಟ್ಯಾನಿನ್ಸ್ %';
+
+  @override
+  String get onboarding_welcome_subtitle =>
+      'ಕೃಷಿಭೂಮಿಯಿಂದ ಫಾರ್ಮಸಿವರೆಗೆ ಔಷಧೀಯ ಸಸ್ಯಗಳ ಸುರಕ್ಷಿತ ಮತ್ತು ಪಾರದರ್ಶಕ ಟ್ರ್ಯಾಕಿಂಗ್';
+
+  @override
+  String get get_started => 'ಪ್ರಾರಂಭಿಸಿ';
+
+  @override
+  String get track => 'ಟ್ರ್ಯಾಕ್';
+
+  @override
+  String get verify => 'ಪರಿಶೀಲಿಸಿ';
+
+  @override
+  String get sustain => 'ಸಮರ್ಥನೀಯತೆ';
+
+  @override
+  String get choose_your_language => 'ನಿಮ್ಮ ಭಾಷೆಯನ್ನು ಆರಿಸಿ';
+
+  @override
+  String get language_selection_subtitle =>
+      'ಮುಂದುವರಿಯಲು ನಿಮ್ಮ ಆದ್ಯತೆಯ ಭಾಷೆಯನ್ನು ಆಯ್ಕೆ ಮಾಡಿ';
+
+  @override
+  String get supply_chain_journey => 'ಸರಬರಾಜು ಸರಪಳಿ ಪ್ರಯಾಣ';
+
+  @override
+  String get supply_chain_subtitle =>
+      'ನಿಮ್ಮ ಔಷಧೀಯ ಸಸ್ಯಗಳು ಸರಬರಾಜು ಸರಪಳಿಯಲ್ಲಿ ಹೇಗೆ ಚಲಿಸುತ್ತವೆ ಎಂಬುದನ್ನು ನೋಡಿ';
+
+  @override
+  String get farmer_wild_collector => 'ಕೃಷಿಕ/ಕಾಡು ಸಂಗ್ರಾಹಕ';
+
+  @override
+  String get transporter => 'ಸಾರಿಗೆದಾರ';
+
+  @override
+  String get processor => 'ಸಂಸ್ಕಾರಕ';
+
+  @override
+  String get laboratory => 'ಪ್ರಯೋಗಾಲಯ';
+
+  @override
+  String get manufacturer => 'ತಯಾರಕ';
+
+  @override
+  String get packer => 'ಪ್ಯಾಕರ್';
+
+  @override
+  String get farmer_guidance_title => 'ಕೃಷಿಕ ಮಾರ್ಗದರ್ಶನ';
+
+  @override
+  String get farmer_guidance_subtitle =>
+      'ಬೆಳೆಗಳನ್ನು ಸೇರಿಸುವುದು ಮತ್ತು ನಿಮ್ಮ ಸುಗ್ಗಿಯನ್ನು ನಿರ್ವಹಿಸುವುದು ಹೇಗೆಂದು ಕಲಿಯಿರಿ';
+
+  @override
+  String get add_crop_step => 'ಬೆಳೆ ಸೇರಿಸಿ';
+
+  @override
+  String get monitor_growth => 'ಬೆಳವಣಿಗೆ ಮೇಲ್ವಿಚಾರಣೆ';
+
+  @override
+  String get harvest_time => 'ಸುಗ್ಗಿ ಸಮಯ';
+
+  @override
+  String get qr_process_title => 'QR ಕೋಡ್ ಪ್ರಕ್ರಿಯೆ';
+
+  @override
+  String get qr_process_subtitle =>
+      'ಹ್ಯಾಂಡ್‌ಓವರ್ ಪ್ರಕ್ರಿಯೆ ಹೇಗೆ ಕೆಲಸ ಮಾಡುತ್ತದೆ ಎಂಬುದನ್ನು ಕಲಿಯಿರಿ';
+
+  @override
+  String get generate_qr => 'QR ಜನರೇಟ್ ಮಾಡಿ';
+
+  @override
+  String get scan_verify => 'ಸ್ಕ್ಯಾನ್ ಮತ್ತು ಪರಿಶೀಲಿಸಿ';
+
+  @override
+  String get transfer_complete => 'ವರ್ಗಾವಣೆ ಪೂರ್ಣ';
+
+  @override
+  String get ready_to_start => 'ನಿಮ್ಮ ಪ್ರಯಾಣ ಪ್ರಾರಂಭಿಸಲು ಸಿದ್ಧರೇ?';
+
+  @override
+  String get get_started_subtitle =>
+      'ಪಾರದರ್ಶಕತೆ ಮತ್ತು ನಂಬಿಕೆಯೊಂದಿಗೆ ಸಂಪೂರ್ಣ ಪೂರೈಕೆ ಸರಪಳಿಯ ಮೂಲಕ ನಿಮ್ಮ ಔಷಧೀಯ ಉತ್ಪನ್ನಗಳನ್ನು ಟ್ರ್ಯಾಕ್ ಮಾಡಲು ಪ್ರಾರಂಭಿಸಿ।';
+
+  @override
+  String get quick_transactions => 'ತ್ವರಿತ ವಹಿವಾಟುಗಳು';
+
+  @override
+  String get full_traceability => 'ಸಂಪೂರ್ಣ ಪತ್ತೆಹಚ್ಚುವಿಕೆ';
+
+  @override
+  String get secure_blockchain => 'ಸುರಕ್ಷಿತ ಬ್ಲಾಕ್‌ಚೈನ್';
+
+  @override
+  String get get_started_button => 'ಪ್ರಾರಂಭಿಸಿ';
 }

@@ -3,7 +3,6 @@ import 'dart:math';
 import 'package:flutter/services.dart' show Clipboard, ClipboardData;
 import 'package:flutter/material.dart' show debugPrint;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:herbtrace_app/consts/sharedpreferences_consts.dart';
 import 'package:herbtrace_app/models/common/profile_type.dart';
 import 'package:herbtrace_app/providers/common/profile_provider.dart';
 import 'package:herbtrace_app/services/auth/login_service.dart';
@@ -31,7 +30,6 @@ class AuthService {
     final otp = (100000 + random.nextInt(900000)).toString();
     _currentOTP = otp;
     debugPrint('Generated OTP: $otp');
-    // Copy OTP to clipboard
 
     Clipboard.setData(ClipboardData(text: otp));
     return otp;

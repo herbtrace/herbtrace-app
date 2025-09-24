@@ -6,7 +6,6 @@ import 'package:herbtrace_app/providers/common/profile_provider.dart';
 import 'package:herbtrace_app/screens/profiles/farmer/dashboard/farmer_dashboard_screen.dart';
 import 'package:herbtrace_app/screens/profiles/farmer/status/status_screen.dart';
 import 'package:herbtrace_app/screens/qr_scanner_screen.dart';
-import 'package:herbtrace_app/utils/user_preferences.dart';
 import 'package:herbtrace_app/widgets/common/app_bar/custom_app_bar.dart';
 import 'package:herbtrace_app/widgets/common/navigation/app_drawer.dart';
 import 'package:herbtrace_app/widgets/common/navigation/bottom_nav_bar.dart';
@@ -44,8 +43,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
         throw UnimplementedError();
       case ProfileType.laboratory:
         return _buildTransportBody();
-        // TODO: Handle this case.
-        throw UnimplementedError();
+      // TODO: Handle this case.
+      // throw UnimplementedError();
       case ProfileType.manufacturer:
         // TODO: Handle this case.
         throw UnimplementedError();
@@ -58,6 +57,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     }
   }
 
+  // ignore: unused_element
   Widget _buildFarmerBody() {
     switch (_currentIndex) {
       case 0:

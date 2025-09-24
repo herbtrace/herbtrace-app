@@ -207,5 +207,129 @@
   "tanninsContentMinPercent": "Min Tannins %",
   "@tanninsContentMinPercent": {
     "description": "Label for minimum tannins content percentage"
+  },
+  "onboarding_welcome_subtitle": "Secure and transparent tracking of medicinal plants from farm to pharmacy",
+  "@onboarding_welcome_subtitle": {
+    "description": "Subtitle text for welcome onboarding page"
+  },
+  "get_started": "Get Started",
+  "@get_started": {
+    "description": "Button text to begin onboarding"
+  },
+  "track": "Track",
+  "@track": {
+    "description": "Feature label for tracking"
+  },
+  "verify": "Verify",
+  "@verify": {
+    "description": "Feature label for verification"
+  },
+  "sustain": "Sustain",
+  "@sustain": {
+    "description": "Feature label for sustainability"
+  },
+  "choose_your_language": "Choose Your Language",
+  "@choose_your_language": {
+    "description": "Title for language selection screen"
+  },
+  "language_selection_subtitle": "Select your preferred language to continue",
+  "@language_selection_subtitle": {
+    "description": "Subtitle for language selection screen"
+  },
+  "supply_chain_journey": "Supply Chain Journey",
+  "@supply_chain_journey": {
+    "description": "Title for supply chain overview page"
+  },
+  "supply_chain_subtitle": "See how your medicinal plants move through the supply chain",
+  "@supply_chain_subtitle": {
+    "description": "Subtitle for supply chain overview page"
+  },
+  "farmer_wild_collector": "Farmer/Wild Collector",
+  "@farmer_wild_collector": {
+    "description": "Label for farmer/wild collector role"
+  },
+  "transporter": "Transporter",
+  "@transporter": {
+    "description": "Label for transporter role"
+  },
+  "processor": "Processor",
+  "@processor": {
+    "description": "Label for processor role"
+  },
+  "laboratory": "Laboratory",
+  "@laboratory": {
+    "description": "Label for laboratory role"
+  },
+  "manufacturer": "Manufacturer",
+  "@manufacturer": {
+    "description": "Label for manufacturer role"
+  },
+  "packer": "Packer",
+  "@packer": {
+    "description": "Label for packer role"
+  },
+  "farmer_guidance_title": "Farmer Guidance",
+  "@farmer_guidance_title": {
+    "description": "Title for farmer guidance page"
+  },
+  "farmer_guidance_subtitle": "Learn how to add crops and manage your harvest",
+  "@farmer_guidance_subtitle": {
+    "description": "Subtitle for farmer guidance page"
+  },
+  "add_crop_step": "Add Crop",
+  "@add_crop_step": {
+    "description": "Step label for adding crop"
+  },
+  "monitor_growth": "Monitor Growth",
+  "@monitor_growth": {
+    "description": "Step label for monitoring growth"
+  },
+  "harvest_time": "Harvest Time",
+  "@harvest_time": {
+    "description": "Step label for harvest time"
+  },
+  "qr_process_title": "QR Code Process",
+  "@qr_process_title": {
+    "description": "Title for QR process page"
+  },
+  "qr_process_subtitle": "Learn how the handover process works",
+  "@qr_process_subtitle": {
+    "description": "Subtitle for QR process page"
+  },
+  "generate_qr": "Generate QR",
+  "@generate_qr": {
+    "description": "Step label for generating QR code"
+  },
+  "scan_verify": "Scan & Verify",
+  "@scan_verify": {
+    "description": "Step label for scanning and verifying"
+  },
+  "transfer_complete": "Transfer Complete",
+  "@transfer_complete": {
+    "description": "Step label for completed transfer"
+  },
+  "ready_to_start": "Ready to Start Your Journey?",
+  "@ready_to_start": {
+    "description": "Title for get started page"
+  },
+  "get_started_subtitle": "Begin tracking your herbal products through the complete supply chain with transparency and trust.",
+  "@get_started_subtitle": {
+    "description": "Subtitle for get started page"
+  },
+  "quick_transactions": "Quick Transactions",
+  "@quick_transactions": {
+    "description": "Feature highlight for quick transactions"
+  },
+  "full_traceability": "Full Traceability",
+  "@full_traceability": {
+    "description": "Feature highlight for full traceability"
+  },
+  "secure_blockchain": "Secure Blockchain",
+  "@secure_blockchain": {
+    "description": "Feature highlight for secure blockchain"
+  },
+  "get_started_button": "Get Started",
+  "@get_started_button": {
+    "description": "Button text for get started"
   }
 }

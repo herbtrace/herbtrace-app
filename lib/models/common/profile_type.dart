@@ -46,8 +46,9 @@ enum ProfileType {
       case 'storage':
         return ProfileType.storage;
       default:
-        print('Invalid ProfileType string: $value');
-        throw ArgumentError('Invalid ProfileType string: $value');
+        return ProfileType.farmer;
+      // print('Invalid ProfileType string: $value');
+      // throw ArgumentError('Invalid ProfileType string: $value');
     }
   }
 }

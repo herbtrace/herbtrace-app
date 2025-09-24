@@ -219,4 +219,103 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get tanninsContentMinPercent => 'न्यूनतम टैनिन %';
+
+  @override
+  String get onboarding_welcome_subtitle =>
+      'खेत से फार्मेसी तक औषधीय पौधों की सुरक्षित और पारदर्शी ट्रैकिंग';
+
+  @override
+  String get get_started => 'शुरू करें';
+
+  @override
+  String get track => 'ट्रैक';
+
+  @override
+  String get verify => 'सत्यापित';
+
+  @override
+  String get sustain => 'स्थिरता';
+
+  @override
+  String get choose_your_language => 'अपनी भाषा चुनें';
+
+  @override
+  String get language_selection_subtitle =>
+      'जारी रखने के लिए अपनी पसंदीदा भाषा चुनें';
+
+  @override
+  String get supply_chain_journey => 'आपूर्ति श्रृंखला यात्रा';
+
+  @override
+  String get supply_chain_subtitle =>
+      'देखें कि आपके औषधीय पौधे आपूर्ति श्रृंखला में कैसे आगे बढ़ते हैं';
+
+  @override
+  String get farmer_wild_collector => 'किसान/जंगली संग्रहकर्ता';
+
+  @override
+  String get transporter => 'परिवहनकर्ता';
+
+  @override
+  String get processor => 'प्रोसेसर';
+
+  @override
+  String get laboratory => 'प्रयोगशाला';
+
+  @override
+  String get manufacturer => 'निर्माता';
+
+  @override
+  String get packer => 'पैकर';
+
+  @override
+  String get farmer_guidance_title => 'किसान मार्गदर्शन';
+
+  @override
+  String get farmer_guidance_subtitle =>
+      'फसल जोड़ना और अपनी फसल का प्रबंधन करना सीखें';
+
+  @override
+  String get add_crop_step => 'फसल जोड़ें';
+
+  @override
+  String get monitor_growth => 'वृद्धि निगरानी';
+
+  @override
+  String get harvest_time => 'फसल का समय';
+
+  @override
+  String get qr_process_title => 'QR कोड प्रक्रिया';
+
+  @override
+  String get qr_process_subtitle =>
+      'जानें कि हैंडओवर प्रक्रिया कैसे काम करती है';
+
+  @override
+  String get generate_qr => 'QR जेनरेट करें';
+
+  @override
+  String get scan_verify => 'स्कैन और सत्यापित';
+
+  @override
+  String get transfer_complete => 'स्थानांतरण पूर्ण';
+
+  @override
+  String get ready_to_start => 'अपनी यात्रा शुरू करने के लिए तैयार हैं?';
+
+  @override
+  String get get_started_subtitle =>
+      'पारदर्शिता और विश्वास के साथ पूरी आपूर्ति श्रृंखला के माध्यम से अपने हर्बल उत्पादों को ट्रैक करना शुरू करें।';
+
+  @override
+  String get quick_transactions => 'त्वरित लेन-देन';
+
+  @override
+  String get full_traceability => 'पूर्ण अनुरेखणीयता';
+
+  @override
+  String get secure_blockchain => 'सुरक्षित ब्लॉकचेन';
+
+  @override
+  String get get_started_button => 'शुरू करें';
 }

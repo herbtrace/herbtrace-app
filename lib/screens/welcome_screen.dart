@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:herbtrace_app/screens/common/auth/auth_screen.dart';
+import 'package:herbtrace_app/screens/onboarding/onboarding_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
@@ -53,7 +53,7 @@ class WelcomeScreen extends StatelessWidget {
                       Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const AuthScreen(),
+                          builder: (context) => const OnboardingScreen(),
                         ),
                       );
                     },
