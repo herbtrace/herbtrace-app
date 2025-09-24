@@ -130,76 +130,76 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                 ),
               ),
 
-              if (_currentIndex > 0)
-                Padding(
-                  padding: const EdgeInsets.all(20),
-                  child: Row(
-                    children: [
-                      if (_currentIndex > 1)
-                        Expanded(
-                          child: OutlinedButton(
-                            onPressed: _previousPage,
-                            style: OutlinedButton.styleFrom(
-                              side: BorderSide(color: Colors.white),
-                              padding: const EdgeInsets.symmetric(vertical: 16),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(12),
-                              ),
-                            ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Icon(Icons.arrow_back, color: Colors.white),
-                                const SizedBox(width: 8),
-                                Text(
-                                  'Previous',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-
-                      if (_currentIndex > 1) const SizedBox(width: 16),
-
+              // if (_currentIndex > 0)
+              Padding(
+                padding: const EdgeInsets.all(20),
+                child: Row(
+                  children: [
+                    if (_currentIndex > 1)
                       Expanded(
-                        flex: _currentIndex > 1 ? 1 : 2,
-                        child: ElevatedButton(
-                          onPressed: _nextPage,
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.white,
-                            foregroundColor: AppTheme.primaryGreen,
+                        child: OutlinedButton(
+                          onPressed: _previousPage,
+                          style: OutlinedButton.styleFrom(
+                            side: BorderSide(color: Colors.white),
                             padding: const EdgeInsets.symmetric(vertical: 16),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(12),
                             ),
-                            elevation: 0,
                           ),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
+                              Icon(Icons.arrow_back, color: Colors.white),
+                              const SizedBox(width: 8),
                               Text(
-                                _currentIndex == _pages.length - 1
-                                    ? 'Get Started'
-                                    : 'Next',
+                                'Previous',
                                 style: TextStyle(
+                                  color: Colors.white,
                                   fontSize: 16,
-                                  fontWeight: FontWeight.bold,
+                                  fontWeight: FontWeight.w500,
                                 ),
                               ),
-                              const SizedBox(width: 8),
-                              Icon(Icons.arrow_forward),
                             ],
                           ),
                         ),
                       ),
-                    ],
-                  ),
+
+                    if (_currentIndex > 1) const SizedBox(width: 16),
+
+                    Expanded(
+                      flex: _currentIndex > 1 ? 1 : 2,
+                      child: ElevatedButton(
+                        onPressed: _nextPage,
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.white,
+                          foregroundColor: AppTheme.primaryGreen,
+                          padding: const EdgeInsets.symmetric(vertical: 16),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          elevation: 0,
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              _currentIndex == _pages.length - 1
+                                  ? 'Get Started'
+                                  : 'Next',
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            const SizedBox(width: 8),
+                            Icon(Icons.arrow_forward),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
+              ),
             ],
           ),
         ),
