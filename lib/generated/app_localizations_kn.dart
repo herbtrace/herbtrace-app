@@ -12,6 +12,9 @@ class AppLocalizationsKn extends AppLocalizations {
   String get select_this_crop => 'ಈ ಬೆಳೆಯನ್ನು ಆಯ್ಕೆ ಮಾಡಿ';
 
   @override
+  String get select_a_crop => 'ಒಂದು ಬೆಳೆಯನ್ನು ಆಯ್ಕೆ ಮಾಡಿ';
+
+  @override
   String get welcome => 'ಸ್ವಾಗತ';
 
   @override
@@ -88,22 +91,22 @@ class AppLocalizationsKn extends AppLocalizations {
   String get transfer_confirmation => 'ನಾನು ಈ ವರ್ಗಾವಣೆಯನ್ನು ದೃಢೀಕರಿಸುತ್ತೇನೆ';
 
   @override
-  String get endTransaction => 'End Transaction';
+  String get endTransaction => 'ವಹಿವಾಟು ಅಂತ್ಯ';
 
   @override
-  String get cancel => 'Cancel';
+  String get cancel => 'ರದ್ದುಗೊಳಿಸಿ';
 
   @override
-  String get confirm => 'Confirm';
+  String get confirm => 'ದೃಢೀಕರಿಸಿ';
 
   @override
-  String get cropLabel => 'Crop';
+  String get cropLabel => 'ಬೆಳೆ';
 
   @override
-  String get durationLabel => 'Duration';
+  String get durationLabel => 'ಅವಧಿ';
 
   @override
-  String get quantityLabel => 'Quantity';
+  String get quantityLabel => 'ಪ್ರಮಾಣ';
 
   @override
   String quantityUnit(double quantity) {
@@ -111,7 +114,7 @@ class AppLocalizationsKn extends AppLocalizations {
         intl.NumberFormat.decimalPattern(localeName);
     final String quantityString = quantityNumberFormat.format(quantity);
 
-    return '$quantityString kg';
+    return '$quantityString ಕಿಗ್ರಾ';
   }
 
   @override
@@ -128,19 +131,19 @@ class AppLocalizationsKn extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       hours,
       locale: localeName,
-      other: '$hoursString hours ',
-      one: '1 hour ',
+      other: '$hoursString ಗಂಟೆಗಳು ',
+      one: '1 ಗಂಟೆ ',
       zero: '',
     );
     String _temp1 = intl.Intl.pluralLogic(
       minutes,
       locale: localeName,
-      other: '$minutesString minutes',
-      one: '1 minute',
+      other: '$minutesString ನಿಮಿಷಗಳು',
+      one: '1 ನಿಮಿಷ',
     );
     return '$_temp0$_temp1';
   }
 
   @override
-  String get transactionDetails => 'Transaction Details';
+  String get transactionDetails => 'ವಹಿವಾಟು ವಿವರಗಳು';
 }

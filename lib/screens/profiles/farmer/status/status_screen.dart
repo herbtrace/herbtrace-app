@@ -62,10 +62,10 @@ class _StatusScreenState extends ConsumerState<StatusScreen> {
             },
           ),
           if (transactionState.activeTransactions.isNotEmpty) ...[
-            Text(
-              AppLocalizations.of(context)!.transaction_history,
-              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            ),
+            // Text(
+            //   AppLocalizations.of(context)!.transaction_history,
+            //   style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            // ),
             const SizedBox(height: 16),
             ...transactionState.activeTransactions.map(
               (transaction) => TransactionCard(

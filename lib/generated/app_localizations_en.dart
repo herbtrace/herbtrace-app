@@ -12,6 +12,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get select_this_crop => 'Select This Crop';
 
   @override
+  String get select_a_crop => 'Select a Crop';
+
+  @override
   String get welcome => 'Welcome';
 
   @override

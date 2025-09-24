@@ -1,6 +1,7 @@
 {
   "@@locale": "hi",
   "select_this_crop": "इस फसल का चयन करें",
+  "select_a_crop": "एक फसल का चयन करें",
   "welcome": "स्वागत है",
   "welcome_to_herbtrace": "हर्बट्रेस में आपका स्वागत है",
   "login": "लॉगिन",
@@ -55,5 +56,57 @@
   "transfer_confirmation": "मैं इस स्थानांतरण की पुष्टि करता/करती हूँ",
   "@transfer_confirmation": {
     "description": "Button text for confirming transfer"
+  },
+  "endTransaction": "लेन-देन समाप्त करें",
+  "@endTransaction": {
+    "description": "Title for end transaction dialog"
+  },
+  "cancel": "रद्द करें",
+  "@cancel": {
+    "description": "Cancel button text"
+  },
+  "confirm": "पुष्टि करें",
+  "@confirm": {
+    "description": "Confirm button text"
+  },
+  "cropLabel": "फसल",
+  "@cropLabel": {
+    "description": "Label for crop name"
+  },
+  "durationLabel": "अवधि",
+  "@durationLabel": {
+    "description": "Label for duration"
+  },
+  "quantityLabel": "मात्रा",
+  "@quantityLabel": {
+    "description": "Label for quantity"
+  },
+  "quantityUnit": "{quantity} किग्रा",
+  "@quantityUnit": {
+    "description": "Quantity with unit",
+    "placeholders": {
+      "quantity": {
+        "type": "double",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "durationFormat": "{hours, plural, =0{} =1{1 घंटा } other{{hours} घंटे }}{minutes, plural, =1{1 मिनट} other{{minutes} मिनट}}",
+  "@durationFormat": {
+    "description": "Duration format string",
+    "placeholders": {
+      "hours": {
+        "type": "num",
+        "format": "compact"
+      },
+      "minutes": {
+        "type": "num",
+        "format": "compact"
+      }
+    }
+  },
+  "transactionDetails": "लेन-देन का विवरण",
+  "@transactionDetails": {
+    "description": "Title for transaction details screen"
   }
 }

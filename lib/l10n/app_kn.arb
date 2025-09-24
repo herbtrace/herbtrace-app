@@ -1,6 +1,7 @@
 {
   "@@locale": "kn",
   "select_this_crop": "ಈ ಬೆಳೆಯನ್ನು ಆಯ್ಕೆ ಮಾಡಿ",
+  "select_a_crop": "ಒಂದು ಬೆಳೆಯನ್ನು ಆಯ್ಕೆ ಮಾಡಿ",
   "welcome": "ಸ್ವಾಗತ",
   "welcome_to_herbtrace": "ಹರ್ಬ್‌ಟ್ರೇಸ್‌ಗೆ ಸ್ವಾಗತ",
   "login": "ಲಾಗಿನ್",
@@ -55,5 +56,57 @@
   "transfer_confirmation": "ನಾನು ಈ ವರ್ಗಾವಣೆಯನ್ನು ದೃಢೀಕರಿಸುತ್ತೇನೆ",
   "@transfer_confirmation": {
     "description": "Button text for confirming transfer"
+  },
+  "endTransaction": "ವಹಿವಾಟು ಅಂತ್ಯ",
+  "@endTransaction": {
+    "description": "Title for end transaction dialog"
+  },
+  "cancel": "ರದ್ದುಗೊಳಿಸಿ",
+  "@cancel": {
+    "description": "Cancel button text"
+  },
+  "confirm": "ದೃಢೀಕರಿಸಿ",
+  "@confirm": {
+    "description": "Confirm button text"
+  },
+  "cropLabel": "ಬೆಳೆ",
+  "@cropLabel": {
+    "description": "Label for crop name"
+  },
+  "durationLabel": "ಅವಧಿ",
+  "@durationLabel": {
+    "description": "Label for duration"
+  },
+  "quantityLabel": "ಪ್ರಮಾಣ",
+  "@quantityLabel": {
+    "description": "Label for quantity"
+  },
+  "quantityUnit": "{quantity} ಕಿಗ್ರಾ",
+  "@quantityUnit": {
+    "description": "Quantity with unit",
+    "placeholders": {
+      "quantity": {
+        "type": "double",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "durationFormat": "{hours, plural, =0{} =1{1 ಗಂಟೆ } other{{hours} ಗಂಟೆಗಳು }}{minutes, plural, =1{1 ನಿಮಿಷ} other{{minutes} ನಿಮಿಷಗಳು}}",
+  "@durationFormat": {
+    "description": "Duration format string",
+    "placeholders": {
+      "hours": {
+        "type": "num",
+        "format": "compact"
+      },
+      "minutes": {
+        "type": "num",
+        "format": "compact"
+      }
+    }
+  },
+  "transactionDetails": "ವಹಿವಾಟು ವಿವರಗಳು",
+  "@transactionDetails": {
+    "description": "Title for transaction details screen"
   }
 }

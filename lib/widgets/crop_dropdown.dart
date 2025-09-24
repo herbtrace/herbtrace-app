@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:herbtrace_app/data/crops.dart';
 import 'package:herbtrace_app/models/crop_model.dart';
 import 'package:herbtrace_app/widgets/crop_detail_dialog.dart';
+import 'package:herbtrace_app/generated/app_localizations.dart';
 
 class CropDropdown extends StatefulWidget {
   final void Function(CropModel?) onCropSelected;
@@ -35,7 +36,7 @@ class _CropDropdownState extends State<CropDropdown> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        const Text('Select a Crop'),
+        Text(AppLocalizations.of(context)!.select_a_crop),
         const SizedBox(height: 8),
         Container(
           decoration: BoxDecoration(

@@ -547,7 +547,7 @@ class TransactionDetailsScreen extends ConsumerWidget {
         onPressed: () => _handleEndTransaction(context, ref),
         backgroundColor: Colors.red,
         icon: const Icon(Icons.stop_circle_outlined),
-        label: const Text('End Transaction'),
+        label: Text(AppLocalizations.of(context)!.endTransaction),
       ),
     );
   }

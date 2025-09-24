@@ -106,6 +106,12 @@ abstract class AppLocalizations {
   /// **'Select This Crop'**
   String get select_this_crop;
 
+  /// Label for crop selection dropdown
+  ///
+  /// In en, this message translates to:
+  /// **'Select a Crop'**
+  String get select_a_crop;
+
   /// No description provided for @welcome.
   ///
   /// In en, this message translates to:

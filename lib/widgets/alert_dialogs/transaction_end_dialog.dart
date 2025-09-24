@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:herbtrace_app/generated/app_localizations.dart';
+import 'package:herbtrace_app/utils/crop_localization_utils.dart';
 import '../../utils/datetime_utils.dart';
 
 class TransactionEndDialog extends StatefulWidget {
@@ -52,15 +54,16 @@ class _TransactionEndDialogState extends State<TransactionEndDialog> {
 
   @override
   Widget build(BuildContext context) {
-    final duration = DateTimeUtils.getDurationString(widget.startTime, widget.endTime);
+    final duration = DateTimeUtils.getDurationString(
+      widget.startTime,
+      widget.endTime,
+    );
     final theme = Theme.of(context);
 
     return WillPopScope(
       onWillPop: () async => !_isLoading,
       child: Dialog(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         child: Container(
           padding: const EdgeInsets.all(24),
           decoration: BoxDecoration(
@@ -89,7 +92,7 @@ class _TransactionEndDialogState extends State<TransactionEndDialog> {
                 ),
                 const SizedBox(height: 24),
                 Text(
-                  'End Transaction',
+                  AppLocalizations.of(context)!.endTransaction,
                   style: theme.textTheme.titleLarge?.copyWith(
                     fontWeight: FontWeight.bold,
                   ),
@@ -97,27 +100,36 @@ class _TransactionEndDialogState extends State<TransactionEndDialog> {
                 const SizedBox(height: 16),
                 ListTile(
                   leading: const Icon(Icons.grass),
-                  title: const Text('Crop'),
-                  trailing: Text(widget.cropName),
+                  subtitle: Text(AppLocalizations.of(context)!.cropLabel),
+                  title: Text(
+                    CropLocalizationUtils.getLocalizedCropName(
+                      context,
+                      widget.cropName,
+                    ),
+                  ),
                 ),
                 ListTile(
                   leading: const Icon(Icons.timer),
-                  title: const Text('Duration'),
-                  trailing: Text(duration),
+                  subtitle: Text(AppLocalizations.of(context)!.durationLabel),
+                  title: Text(
+                    AppLocalizations.of(context)!.durationFormat(
+                      widget.endTime.difference(widget.startTime).inHours,
+                      widget.endTime.difference(widget.startTime).inMinutes %
+                          60,
+                    ),
+                  ),
                 ),
                 ListTile(
                   leading: const Icon(Icons.scale),
-                  title: const Text('Quantity'),
-                  trailing: Text('${widget.quantity} kg'),
+                  subtitle: Text(AppLocalizations.of(context)!.quantityLabel),
+                  title: Text('${widget.quantity} kg'),
                 ),
                 if (_error != null)
                   Padding(
                     padding: const EdgeInsets.all(8),
                     child: Text(
                       _error!,
-                      style: TextStyle(
-                        color: theme.colorScheme.error,
-                      ),
+                      style: TextStyle(color: theme.colorScheme.error),
                       textAlign: TextAlign.center,
                     ),
                   ),
@@ -128,10 +140,8 @@ class _TransactionEndDialogState extends State<TransactionEndDialog> {
                     TextButton(
                       onPressed: _isLoading ? null : widget.onCancel,
                       child: Text(
-                        'Cancel',
-                        style: TextStyle(
-                          color: theme.colorScheme.error,
-                        ),
+                        AppLocalizations.of(context)!.cancel,
+                        style: TextStyle(color: theme.colorScheme.error),
                       ),
                     ),
                     const SizedBox(width: 16),
@@ -141,7 +151,7 @@ class _TransactionEndDialogState extends State<TransactionEndDialog> {
                         backgroundColor: theme.colorScheme.primary,
                         foregroundColor: theme.colorScheme.onPrimary,
                       ),
-                      child: const Text('Confirm'),
+                      child: Text(AppLocalizations.of(context)!.confirm),
                     ),
                   ],
                 ),

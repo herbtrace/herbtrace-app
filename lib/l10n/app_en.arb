@@ -1,6 +1,10 @@
 {
   "@@locale": "en",
   "select_this_crop": "Select This Crop",
+  "select_a_crop": "Select a Crop",
+  "@select_a_crop": {
+    "description": "Label for crop selection dropdown"
+  },
   "welcome": "Welcome",
   "welcome_to_herbtrace": "Welcome to herbtrace",
   "login": "Login",

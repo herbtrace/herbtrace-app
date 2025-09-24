@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:herbtrace_app/config/theme.dart';
 import 'package:herbtrace_app/providers/profiles/farmer/transaction_provider.dart';
+import 'package:herbtrace_app/utils/crop_localization_utils.dart';
 
 class TransactionCard extends ConsumerWidget {
   final BatchCropModel transaction;
@@ -40,7 +41,10 @@ class TransactionCard extends ConsumerWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          crop.speciesName,
+                          CropLocalizationUtils.getLocalizedCropName(
+                            context,
+                            crop.speciesName,
+                          ),
                           style: const TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.w500,
