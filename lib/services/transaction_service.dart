@@ -94,4 +94,52 @@ class TransactionService {
       throw Exception('Failed to transfer batch 2: $e');
     }
   }
+
+  static Future<bool> endTransaction({
+    required String transactionId,
+    required DateTime endTime,
+    required double quantity,
+  }) async {
+    try {
+      final url = Uri.parse(
+        '${ApiEndpoints.baseUrl}/transactions/$transactionId/end',
+      );
+
+      final requestBody = {
+        'end_time': endTime.toIso8601String(),
+        'quantity': quantity,
+      };
+
+      final response = await http.post(
+        url,
+        headers: {'Content-Type': 'application/json'},
+        body: jsonEncode(requestBody),
+      );
+
+      if (response.statusCode == 200) {
+        return true;
+      }
+
+      throw Exception('Failed to end transaction: ${response.body}');
+    } catch (e) {
+      throw Exception('Failed to end transaction: $e');
+    }
+  }
+
+  static Future<List<Map<String, dynamic>>> getActiveTransactions() async {
+    try {
+      final url = Uri.parse('${ApiEndpoints.baseUrl}/transactions/active');
+
+      final response = await http.get(url);
+
+      if (response.statusCode == 200) {
+        final List<dynamic> data = jsonDecode(response.body);
+        return data.cast<Map<String, dynamic>>();
+      }
+
+      throw Exception('Failed to get active transactions: ${response.body}');
+    } catch (e) {
+      throw Exception('Failed to get active transactions: $e');
+    }
+  }
 }

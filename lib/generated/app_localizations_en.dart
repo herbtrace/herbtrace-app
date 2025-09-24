@@ -86,4 +86,61 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get transfer_confirmation => 'I confirm this transfer';
+
+  @override
+  String get endTransaction => 'End Transaction';
+
+  @override
+  String get cancel => 'Cancel';
+
+  @override
+  String get confirm => 'Confirm';
+
+  @override
+  String get cropLabel => 'Crop';
+
+  @override
+  String get durationLabel => 'Duration';
+
+  @override
+  String get quantityLabel => 'Quantity';
+
+  @override
+  String quantityUnit(double quantity) {
+    final intl.NumberFormat quantityNumberFormat =
+        intl.NumberFormat.decimalPattern(localeName);
+    final String quantityString = quantityNumberFormat.format(quantity);
+
+    return '$quantityString kg';
+  }
+
+  @override
+  String durationFormat(num hours, num minutes) {
+    final intl.NumberFormat hoursNumberFormat = intl.NumberFormat.compact(
+      locale: localeName,
+    );
+    final String hoursString = hoursNumberFormat.format(hours);
+    final intl.NumberFormat minutesNumberFormat = intl.NumberFormat.compact(
+      locale: localeName,
+    );
+    final String minutesString = minutesNumberFormat.format(minutes);
+
+    String _temp0 = intl.Intl.pluralLogic(
+      hours,
+      locale: localeName,
+      other: '$hoursString hours ',
+      one: '1 hour ',
+      zero: '',
+    );
+    String _temp1 = intl.Intl.pluralLogic(
+      minutes,
+      locale: localeName,
+      other: '$minutesString minutes',
+      one: '1 minute',
+    );
+    return '$_temp0$_temp1';
+  }
+
+  @override
+  String get transactionDetails => 'Transaction Details';
 }

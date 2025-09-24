@@ -255,6 +255,60 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'I confirm this transfer'**
   String get transfer_confirmation;
+
+  /// Title for end transaction dialog
+  ///
+  /// In en, this message translates to:
+  /// **'End Transaction'**
+  String get endTransaction;
+
+  /// Cancel button text
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get cancel;
+
+  /// Confirm button text
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm'**
+  String get confirm;
+
+  /// Label for crop name
+  ///
+  /// In en, this message translates to:
+  /// **'Crop'**
+  String get cropLabel;
+
+  /// Label for duration
+  ///
+  /// In en, this message translates to:
+  /// **'Duration'**
+  String get durationLabel;
+
+  /// Label for quantity
+  ///
+  /// In en, this message translates to:
+  /// **'Quantity'**
+  String get quantityLabel;
+
+  /// Quantity with unit
+  ///
+  /// In en, this message translates to:
+  /// **'{quantity} kg'**
+  String quantityUnit(double quantity);
+
+  /// Duration format string
+  ///
+  /// In en, this message translates to:
+  /// **'{hours, plural, =0{} =1{1 hour } other{{hours} hours }}{minutes, plural, =1{1 minute} other{{minutes} minutes}}'**
+  String durationFormat(num hours, num minutes);
+
+  /// Title for transaction details screen
+  ///
+  /// In en, this message translates to:
+  /// **'Transaction Details'**
+  String get transactionDetails;
 }
 
 class _AppLocalizationsDelegate

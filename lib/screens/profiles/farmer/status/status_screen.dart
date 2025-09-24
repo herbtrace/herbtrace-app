@@ -4,7 +4,8 @@ import 'package:herbtrace_app/config/theme.dart';
 import 'package:herbtrace_app/generated/app_localizations.dart';
 import 'package:herbtrace_app/providers/profiles/farmer/transaction_provider.dart';
 import 'package:herbtrace_app/screens/profiles/farmer/transaction/transaction_screen.dart';
-import 'package:herbtrace_app/screens/profiles/farmer/transaction/transaction_details_screen.dart';
+import 'package:herbtrace_app/screens/profiles/farmer/transaction/transaction_details_screen.dart'
+    hide transactionProvider;
 import 'package:herbtrace_app/widgets/common/primary_button.dart';
 import 'package:herbtrace_app/widgets/transaction_card.dart';
 

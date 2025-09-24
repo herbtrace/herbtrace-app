@@ -55,5 +55,57 @@
   "transfer_confirmation": "I confirm this transfer",
   "@transfer_confirmation": {
     "description": "Button text for confirming transfer"
+  },
+  "endTransaction": "End Transaction",
+  "@endTransaction": {
+    "description": "Title for end transaction dialog"
+  },
+  "cancel": "Cancel",
+  "@cancel": {
+    "description": "Cancel button text"
+  },
+  "confirm": "Confirm",
+  "@confirm": {
+    "description": "Confirm button text"
+  },
+  "cropLabel": "Crop",
+  "@cropLabel": {
+    "description": "Label for crop name"
+  },
+  "durationLabel": "Duration",
+  "@durationLabel": {
+    "description": "Label for duration"
+  },
+  "quantityLabel": "Quantity",
+  "@quantityLabel": {
+    "description": "Label for quantity"
+  },
+  "quantityUnit": "{quantity} kg",
+  "@quantityUnit": {
+    "description": "Quantity with unit",
+    "placeholders": {
+      "quantity": {
+        "type": "double",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "durationFormat": "{hours, plural, =0{} =1{1 hour } other{{hours} hours }}{minutes, plural, =1{1 minute} other{{minutes} minutes}}",
+  "@durationFormat": {
+    "description": "Duration format string",
+    "placeholders": {
+      "hours": {
+        "type": "num",
+        "format": "compact"
+      },
+      "minutes": {
+        "type": "num",
+        "format": "compact"
+      }
+    }
+  },
+  "transactionDetails": "Transaction Details",
+  "@transactionDetails": {
+    "description": "Title for transaction details screen"
   }
 }
